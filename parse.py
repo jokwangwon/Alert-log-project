@@ -17,29 +17,38 @@ def parse_blocks(lines, ts_pattern=TS, ora_pattern=ORA):
     ora_pattern (re.Pattern): ORA 에러 코드 패턴
 
   Returns:
-    list: 타임스탬프 단위 블록 리스트
-        {"timestamp": str, "body": list, "ora_codes": list}
+    list[dict]: 타임스탬프 단위 블록 리스트
+        {
+          "timestamp": str,        # 블록 시작 타임스탬프 줄
+          "ora_codes": list[str],  # 블록에서 찾은 ORA 코드
+          "has_ora": bool,         # ORA 코드 포함 여부
+          "message": str,          # 대표 메시지 1줄
+          "raw_lines": list[str],  # 원문 줄들
+        }
   """
 
   blocks = []
   current = None
 
   for line in lines:
-    line = line.rstrip()
+    line = line.rstrip() # 왼쪽 들여쓰기는 유지해야함으로 rstrip()만 사용
     if not line:
       continue
 
     if is_timestamp(line, ts_pattern):
-      if current != None:
+      if current is not None:
         blocks.append(current)
-      current = {"timestamp": line, "body": [], "ora_codes": []}
+      current = {"timestamp": line, "ora_codes": [], "has_ora": False, "message": "", "raw_lines": []}
     else:
       if current is None:
         continue
-      current["body"].append(line)
+      current["raw_lines"].append(line)
+      if not current["message"]:
+        current["message"] = line
       if ora_pattern.findall(line):
         current["ora_codes"].extend(ora_pattern.findall(line))
-  if current != None:
+        current["has_ora"] = True
+  if current is not None:
     blocks.append(current)
   return blocks
 
@@ -50,4 +59,4 @@ if __name__ == "__main__":
 
     for block in blocks:
       if block["ora_codes"]:
-        print(block)
+        print(f"\ntimestamp: {block['timestamp']}\nORA codes: {block['ora_codes']}\nMessage: {block['message']}")
