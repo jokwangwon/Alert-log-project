@@ -1,0 +1,502 @@
+
+2026-07-20T16:20:22.580343+09:00
+Incremental checkpoint up to RBA [0x9c.6448.0], current log tail at RBA [0x9c.65b6.0]
+2026-07-20T16:50:40.444894+09:00
+Incremental checkpoint up to RBA [0x9c.6c57.0], current log tail at RBA [0x9c.6e0e.0]
+2026-07-20T17:21:02.651669+09:00
+Incremental checkpoint up to RBA [0x9c.8f24.0], current log tail at RBA [0x9c.9071.0]
+2026-07-20T17:51:25.181480+09:00
+Incremental checkpoint up to RBA [0x9c.9747.0], current log tail at RBA [0x9c.9917.0]
+2026-07-20T18:21:47.580951+09:00
+Incremental checkpoint up to RBA [0x9c.bb8b.0], current log tail at RBA [0x9c.bd00.0]
+2026-07-27T14:52:27.680177+09:00
+Starting ORACLE instance (normal) (OS id: 2192)
+2026-07-27T14:52:27.688747+09:00
+****************************************************
+ /dev/shm will be used for creating SGA 
+Large pages will not be used. Only standard 4K pages will be used 
+****************************************************
+2026-07-27T14:52:27.693276+09:00
+**********************************************************************
+2026-07-27T14:52:27.693328+09:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2026-07-27T14:52:27.693434+09:00
+ Per process system memlock (soft) limit = 128G
+2026-07-27T14:52:27.693479+09:00
+ Expected per process system memlock (soft) limit to lock
+ instance MAX SHARED GLOBAL AREA (SGA) into memory: 1472M
+2026-07-27T14:52:27.693840+09:00
+ Available system pagesizes:
+  4K, 2048K 
+2026-07-27T14:52:27.693946+09:00
+ Supported system pagesize(s):
+2026-07-27T14:52:27.693988+09:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2026-07-27T14:52:27.694103+09:00
+        4K       Configured          376835          376835        NONE
+2026-07-27T14:52:27.694199+09:00
+ Reason for not supporting certain system pagesizes: 
+2026-07-27T14:52:27.694298+09:00
+  2048K - Dynamic allocate and free memory regions
+2026-07-27T14:52:27.694390+09:00
+**********************************************************************
+2026-07-27T14:52:35.589935+09:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2026-07-27T14:52:35.620606+09:00
+Initial number of CPU is 2
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Database Test 
+capabilities requested : 3 detected : 0 Simulated : 0
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =51
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/19.3.0/dbhome_1
+System name:	Linux
+Node name:	ora19c
+Release:	5.4.17-2102.201.3.el7uek.x86_64
+Version:	#2 SMP Fri Apr 23 09:05:55 PDT 2021
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileora19c.ora
+System parameters with non-default values:
+  processes                = 300
+  resource_limit           = FALSE
+  memory_target            = 1472M
+  control_files            = "/u01/app/oracle/oradata/ORA19C/control01.ctl"
+  db_block_size            = 8192
+  db_4k_cache_size         = 16M
+  db_keep_cache_size       = 16M
+  db_recycle_cache_size    = 16M
+  compatible               = "19.0.0"
+  log_archive_dest_1       = "location=use_db_recovery_file_dest"
+  log_archive_format       = "arch_%t_%s_%r.arc"
+  db_create_file_dest      = "/u01/app/oracle/oradata"
+  db_recovery_file_dest    = "/u01/app/oracle/fast_recovery_area"
+  db_recovery_file_dest_size= 8256M
+  log_checkpoints_to_alert = TRUE
+  db_flashback_retention_target= 2880
+  undo_management          = "AUTO"
+  undo_tablespace          = "UNDOTBS1"
+  remote_login_passwordfile= "EXCLUSIVE"
+  dispatchers              = ""
+  shared_servers           = 0
+  max_shared_servers       = 10
+  max_dispatchers          = 10
+  local_listener           = "LISTENER_ORA19C"
+  audit_file_dest          = "/u01/app/oracle/admin/ora19c/adump"
+  audit_trail              = "NONE"
+  db_name                  = "ora19c"
+  open_cursors             = 100
+  optimizer_mode           = "FIRST_ROWS"
+  diagnostic_dest          = "/u01/app/oracle"
+2026-07-27T14:52:36.178555+09:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+2026-07-27T14:52:36.702269+09:00
+Starting background process PMON
+2026-07-27T14:52:36.711963+09:00
+PMON started with pid=2, OS id=2226 
+Starting background process CLMN
+2026-07-27T14:52:36.759005+09:00
+CLMN started with pid=3, OS id=2228 
+Starting background process PSP0
+2026-07-27T14:52:36.786081+09:00
+PSP0 started with pid=4, OS id=2230 
+Starting background process VKTM
+2026-07-27T14:52:38.120817+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_vktm_2233.trc  (incident=487446):
+ORA-00800: soft external error, arguments: [Set Priority Failed], [VKTM], [Check traces and OS configuration], [Check Oracle document and MOS notes], []
+Incident details in: /u01/app/oracle/diag/rdbms/ora19c/ora19c/incident/incdir_487446/ora19c_vktm_2233_i487446.trc
+2026-07-27T14:52:38.123173+09:00
+Error attempting to elevate VKTM's priority: no further priority changes will be attempted for this process
+VKTM started with pid=5, OS id=2233 
+2026-07-27T14:52:38.137045+09:00
+Starting background process GEN0
+VKTM running at (100ms) precision 
+2026-07-27T14:52:38.190217+09:00
+GEN0 started with pid=6, OS id=2237 
+Starting background process MMAN
+2026-07-27T14:52:38.219313+09:00
+MMAN started with pid=7, OS id=2239 
+Starting background process GEN1
+2026-07-27T14:52:38.333079+09:00
+GEN1 started with pid=9, OS id=2243_2244 
+Starting background process DIAG
+2026-07-27T14:52:38.365045+09:00
+DIAG started with pid=11, OS id=2246 
+Starting background process OFSD
+2026-07-27T14:52:38.420731+09:00
+OFSD started with pid=8, OS id=2248_2249 
+2026-07-27T14:52:38.421252+09:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+Starting background process DBRM
+2026-07-27T14:52:38.447210+09:00
+DBRM started with pid=13, OS id=2251 
+Starting background process VKRM
+2026-07-27T14:52:38.472478+09:00
+VKRM started with pid=14, OS id=2254 
+Starting background process SVCB
+2026-07-27T14:52:38.495398+09:00
+SVCB started with pid=15, OS id=2256 
+Starting background process PMAN
+2026-07-27T14:52:38.534703+09:00
+PMAN started with pid=16, OS id=2258 
+Starting background process DIA0
+2026-07-27T14:52:38.578714+09:00
+DIA0 started with pid=17, OS id=2260 
+Starting background process DBW0
+2026-07-27T14:52:38.699078+09:00
+DBW0 started with pid=18, OS id=2262 
+Starting background process LGWR
+2026-07-27T14:52:38.727457+09:00
+LGWR started with pid=19, OS id=2264 
+Starting background process CKPT
+2026-07-27T14:52:38.790319+09:00
+CKPT started with pid=20, OS id=2266 
+2026-07-27T14:52:38.818040+09:00
+LGWR slave LG00 created with pid=21, OS pid=2268
+Starting background process SMON
+2026-07-27T14:52:38.863302+09:00
+SMON started with pid=22, OS id=2270 
+LGWR slave LG01 created with pid=23, OS pid=2272
+Starting background process SMCO
+2026-07-27T14:52:38.952596+09:00
+SMCO started with pid=24, OS id=2274 
+Starting background process RECO
+2026-07-27T14:52:38.997329+09:00
+RECO started with pid=25, OS id=2276 
+Starting background process LREG
+2026-07-27T14:52:39.070421+09:00
+LREG started with pid=27, OS id=2280 
+2026-07-27T14:52:39.133913+09:00
+Starting background process PXMN
+2026-07-27T14:52:39.160575+09:00
+PXMN started with pid=29, OS id=2284 
+Starting background process FENC
+2026-07-27T14:52:39.204901+09:00
+FENC started with pid=30, OS id=2286 
+Starting background process MMON
+2026-07-27T14:52:39.262003+09:00
+MMON started with pid=31, OS id=2288 
+Starting background process MMNL
+2026-07-27T14:52:39.284088+09:00
+MMNL started with pid=32, OS id=2290 
+Starting background process TMON
+2026-07-27T14:52:39.294145+09:00
+TMON started with pid=30, OS id=2292 
+2026-07-27T14:52:39.294750+09:00
+Setting CPU count to 2
+ORACLE_BASE from environment = /u01/app/oracle
+2026-07-27T14:52:39.333994+09:00
+ALTER DATABASE   MOUNT
+2026-07-27T14:52:41.506914+09:00
+Using default pga_aggregate_limit of 2048 MB
+2026-07-27T14:52:43.448044+09:00
+.... (PID:2293): Redo network throttle feature is disabled at mount time
+2026-07-27T14:52:43.460636+09:00
+Successful mount of redo thread 1, with mount id 1292930039
+2026-07-27T14:52:43.485962+09:00
+Allocating 8388608 bytes in shared pool for flashback generation buffer.
+Allocated 7341720 bytes in shared pool for flashback generation buffer
+Starting background process RVWR
+2026-07-27T14:52:43.533768+09:00
+RVWR started with pid=35, OS id=2304 
+2026-07-27T14:52:43.669686+09:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:2293): Using STANDBY_ARCHIVE_DEST parameter default value as USE_DB_RECOVERY_FILE_DEST [krsd.c:18157]
+Completed: ALTER DATABASE   MOUNT
+2026-07-27T14:52:43.790922+09:00
+ALTER DATABASE OPEN
+Block change tracking file is current.
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+2026-07-27T14:52:43.826976+09:00
+Beginning crash recovery of 1 threads
+ parallel recovery started with 2 processes
+ Thread 1: Recovery starting at checkpoint rba (logseq 156 block 49330), scn 0
+2026-07-27T14:52:43.918735+09:00
+Started redo scan
+2026-07-27T14:52:44.073211+09:00
+Completed redo scan
+ read 65 KB redo, 3 data blocks need recovery
+2026-07-27T14:52:44.095166+09:00
+Started redo application at
+ Thread 1: logseq 156, block 49330, offset 0
+2026-07-27T14:52:44.095596+09:00
+Recovery of Online Redo Log: Thread 1 Group 3 Seq 156 Reading mem 0
+  Mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-07-27T14:52:44.095854+09:00
+Completed redo application of 0.00MB
+2026-07-27T14:52:44.142979+09:00
+Completed crash recovery at
+ Thread 1: RBA 156.49461.16, nab 49461, scn 0x0000000000c5194f
+ 3 data blocks read, 3 data blocks written, 65 redo k-bytes read
+Endian type of dictionary set to little
+2026-07-27T14:52:44.203264+09:00
+LGWR (PID:2264): STARTING ARCH PROCESSES
+Starting background process ARC0
+2026-07-27T14:52:44.239504+09:00
+TT00 (PID:2311): Gap Manager starting
+2026-07-27T14:52:44.269977+09:00
+ARC0 started with pid=39, OS id=2313 
+2026-07-27T14:52:44.280353+09:00
+LGWR (PID:2264): ARC0: Archival started
+LGWR (PID:2264): STARTING ARCH PROCESSES COMPLETE
+2026-07-27T14:52:44.281043+09:00
+ARC0 (PID:2313): Becoming a 'no FAL' ARCH
+ARC0 (PID:2313): Becoming the 'no SRL' ARCH
+2026-07-27T14:52:44.310603+09:00
+TMON (PID:2292): STARTING ARCH PROCESSES
+Starting background process ARC1
+Starting background process ARC2
+2026-07-27T14:52:44.330196+09:00
+ARC1 started with pid=41, OS id=2317 
+2026-07-27T14:52:44.348016+09:00
+Thread 1 advanced to log sequence 157 (thread open)
+Redo log for group 1, sequence 157 is not located on DAX storage
+2026-07-27T14:52:44.370612+09:00
+ARC2 started with pid=42, OS id=2319 
+Starting background process ARC3
+2026-07-27T14:52:44.393623+09:00
+ARC3 started with pid=43, OS id=2321 
+2026-07-27T14:52:44.403069+09:00
+TMON (PID:2292): ARC1: Archival started
+TMON (PID:2292): ARC2: Archival started
+2026-07-27T14:52:44.408878+09:00
+Thread 1 opened at log sequence 157
+  Current log# 1 seq# 157 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+Successful open of redo thread 1
+2026-07-27T14:52:44.418214+09:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+2026-07-27T14:52:44.418955+09:00
+TMON (PID:2292): ARC3: Archival started
+TMON (PID:2292): STARTING ARCH PROCESSES COMPLETE
+2026-07-27T14:52:44.572619+09:00
+starting change tracking :1
+Starting background process CTWR
+2026-07-27T14:52:44.612542+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/flashback/o1_mf_o32sgmo4_.flb
+2026-07-27T14:52:44.628497+09:00
+CTWR started with pid=45, OS id=2326 
+2026-07-27T14:52:44.693778+09:00
+Block change tracking service is active.
+2026-07-27T14:52:44.909383+09:00
+Incremental checkpoint up to RBA [0x9d.3.0], current log tail at RBA [0x9d.3.0]
+2026-07-27T14:52:45.145727+09:00
+ARC0 (PID:2313): Archived Log entry 260 added for T-1.S-156 ID 0x4cc2c1cf LAD:1
+2026-07-27T14:52:45.333949+09:00
+Undo initialization recovery: err:0 start: 593037 end: 593094 diff: 57 ms (0.1 seconds)
+[2305] Successfully onlined Undo Tablespace 2.
+Undo initialization online undo segments: err:0 start: 593094 end: 593142 diff: 48 ms (0.0 seconds)
+Undo initialization finished serial:0 start:593037 end:593146 diff:109 ms (0.1 seconds)
+Verifying minimum file header compatibility for tablespace encryption..
+Verifying file header compatibility for tablespace encryption completed for pdb 0
+Database Characterset is AL32UTF8
+No Resource Manager plan active
+joxcsys_required_dirobj_exists: directory object exists with required path /u01/app/oracle/product/19.3.0/dbhome_1/javavm/admin/, pid 2305 cid 0
+replication_dependency_tracking turned off (no async multimaster replication found)
+2026-07-27T14:52:46.338172+09:00
+Starting background process AQPC
+2026-07-27T14:52:46.377674+09:00
+AQPC started with pid=46, OS id=2329 
+Starting background process CJQ0
+2026-07-27T14:52:46.729784+09:00
+CJQ0 started with pid=47, OS id=2331 
+Completed: ALTER DATABASE OPEN
+2026-07-27T14:52:47.765653+09:00
+QPI: opatch file present, opatch
+QPI: qopiprep.bat file present
+2026-07-27T14:52:50.381195+09:00
+Setting Resource Manager plan SCHEDULER[0x4D58]:DEFAULT_MAINTENANCE_PLAN via scheduler window
+Setting Resource Manager plan DEFAULT_MAINTENANCE_PLAN via parameter
+2026-07-27T14:52:54.317673+09:00
+===========================================================
+Dumping current patch information
+===========================================================
+Patch Id: 29517242
+Patch Description: Database Release Update : 19.3.0.0.190416 (29517242)
+Patch Apply Time: 2019-04-18T16:21:17+09:00
+Bugs Fixed: 14735102,19697993,20313356,21965541,25806201,25883179,25986062,
+26476244,26611353,26872233,27369515,27423500,27666312,27710072,27846298,
+27957203,28064977,28072567,28129791,28181021,28210681,28279456,28313275,
+28350595,28371123,28379065,28431445,28463226,28489419,28502773,28513333,
+28534475,28561704,28569897,28572533,28572544,28587723,28593682,28594086,
+28597221,28601957,28605066,28606598,28625862,28627033,28636532,28643718,
+28644549,28645570,28646200,28646939,28649388,28655209,28663782,28673945,
+28692275,28694872,28696373,28705231,28710385,28710734,28714461,28718469,
+28730079,28740708,28760206,28772390,28774416,28777214,28789531,28791852,
+28795551,28802734,28804517,28810381,28811560,28815123,28815355,28819640,
+28824482,28833912,28835937,28862532,28863432,28873575,28876253,28876639,
+28884931,28888327,28892794,28897512,28899663,28901126,28905457,28907196,
+28912691,28915561,28917080,28918429,28919145,28922227,28922532,28922608,
+28925634,28925880,28933158,28936114,28937717,28938698,28940179,28940281,
+28941901,28942455,28945421,28945994,28951533,28952168,28954762,28955606,
+28957292,28957723,28962775,28965231,28966444,28974083,28977322,28983095,
+28983486,28986326,28986481,28988482,28989306,28993295,28994307,28996376,
+29000000,29001888,29002927,29003738,29006318,29006621,29007321,29007775,
+29008035,29011936,29013475,29014076,29015118,29017265,29018655,29019121,
+29021063,29021352,29024552,29026582,29026606,29027456,29027694,29027940,
+29031575,29031600,29032234,29032457,29032607,29033052,29033145,29033200,
+29033280,29034587,29037290,29038528,29039089,29039510,29043554,29043651,
+29043725,29044763,29044954,29047850,29048289,29048498,29048605,29050560,
+29050765,29051702,29052726,29053783,29056024,29056270,29056560,29059011,
+29061959,29062692,29062848,29062860,29062868,29110526,29110783,29110790,
+29110797,29110802,29110805,29111598,29113282,29113305,29117526,29117642,
+29119077,29120223,29122224,29122254,29123297,29123432,29123482,29124368,
+29125380,29126345,29127957,29128935,29129450,29129497,29129712,29130219,
+29131539,29132938,29134447,29136111,29138641,29141316,29141341,29141685,
+29142667,29144995,29145214,29145730,29149829,29150338,29151520,29152357,
+29155099,29157389,29158680,29158899,29159909,29159936,29160174,29162095,
+29163415,29163437,29163524,29163567,29167111,29167342,29167374,29167940,
+29168219,29168433,29169073,29169215,29171942,29172618,29172826,29173140,
+29173373,29173817,29174004,29176318,29177466,29177543,29177886,29178385,
+29180313,29180455,29180559,29180893,29181153,29181231,29181620,29181743,
+29181923,29182019,29183912,29184297,29184666,29185193,29186456,29189302,
+29189307,29189889,29190235,29190474,29190740,29191541,29192419,29192468,
+29192685,29193207,29194205,29194367,29194493,29194827,29195279,29195337,
+29195758,29196725,29199635,29199733,29200316,29200700,29201494,29201539,
+29202104,29202850,29203122,29203166,29203425,29203443,29203604,29205281,
+29205323,29205419,29205463,29205767,29205918,29206109,29206605,29207073,
+29208260,29208732,29211457,29211724,29212012,29212433,29212611,29213351,
+29213775,29213850,29213879,29214561,29214960,29216746,29216984,29217294,
+29217472,29217828,29217848,29218570,29219205,29219273,29220079,29221248,
+29221891,29222031,29222784,29223833,29223859,29223967,29224065,29224605,
+29225076,29227602,29228869,29229164,29229754,29229844,29229955,29230252,
+29230565,29231133,29232117,29232154,29234123,29237538,29240307,29241345,
+29242017,29242884,29243958,29245137,29245160,29246163,29247415,29247712,
+29247906,29248552,29248835,29248858,29249991,29250059,29251259,29253184,
+29253871,29254031,29254930,29255178,29255273,29255431,29255435,29256426,
+29259119,29259320,29261906,29262512,29262887,29265448,29266248,29266899,
+29267292,29268412,29269171,29270585,29273539,29273735,29273847,29274428,
+29274564,29274627,29275461,29278218,29279658,29279751,29279854,29282898,
+29285503,29285788,29285956,29286037,29287130,29287705,29292837,29293072,
+29297863,29297915,29298220,29299049,29299082,29299844,29301566,29302963,
+29303918,29304781,29311588,29312310,29312734,29312753,29313347,29313417,
+29313525,29314539,29318410,29319441,29321489,29323946,29324568,29325087,
+29325105,29325257,29325993,29327044,29329087,29331209,29331380,29331493,
+29332771,29333500,29337310,29338315,29338453,29338780,29338913,29339155,
+29341209,29343086,29346943,29347620,29348176,29350052,29351386,29351716,
+29351749,29352867,29353271,29355654,29356547,29356752,29358828,29360672,
+29361801,29363151,29364171,29364177,29367019,29367561,29368253,29373418,
+29373588,29374179,29377986,29378029,29379978,29382784,29385652,29386502,
+29386635,29386660,29387274,29388094,29388524,29388830,29389889,29390435,
+29394140,29394749,29397954,29398863,29399100,29399121,29405012,29405651,
+29412066,29412269,29417884,29423826,29429264,29429566,29431485,29435652,
+29438736,29439522,29450421,29451386,29452576,29452953,29457807,29460252,
+29462957,29486181,29507616,29515240,29521748,29530812,29531654,29557336,
+29558975,29601461
+
+Patch Id: 29585399
+Patch Description: OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
+Patch Apply Time: 2019-04-18T16:21:33+09:00
+Bugs Fixed: 3,27222128,27572040,27604329,27760043,27877830,28302580,28470673,
+28621543,28642469,28699321,28710663,28755846,28772816,28785321,28800508,
+28808652,28815557,28847541,28847572,28870496,28871040,28874416,28877252,
+28881191,28881848,28888083,28911140,28925250,28925460,28935956,28940472,
+28942694,28951332,28963036,28968779,28980448,28995287,29003207,29003617,
+29016294,29018680,29024876,29026154,29027933,29047127,29052850,29058476,
+29111631,29112455,29117337,29123444,29125708,29125786,29129476,29131772,
+29132456,29139727,29146157,29147849,29149170,29152603,29152752,29154631,
+29154636,29154829,29159216,29159661,29160462,29161923,29169540,29169739,
+29170717,29173618,29181568,29182920,29183298,29186091,29191827,29201143,
+29201695,29209545,29210577,29210610,29210624,29210683,29213641,29219627,
+29224294,29225861,29229839,29235934,29242906,29243749,29244495,29244766,
+29244968,29248723,29249583,29251564,29255616,29260224,29261695,29271019,
+29273360,29282090,29282666,29285453,29285621,29290235,29292232,29293806,
+29294753,29299830,29307090,29307109,29311336,29329675,29330791,29339299,
+29357821,29360467,29360775,29367971,29368725,29379299,29379381,29380527,
+29381000,29382296,29391301,29393649,29402110,29411931,29413360,29457319,
+29465047
+===========================================================
+2026-07-27T14:52:54.660242+09:00
+db_recovery_file_dest_size of 8256 MB is 63.67% used. This is a
+user-specified limit on the amount of space that will be used by this
+database for recovery-related files, and does not reflect the amount of
+space available in the underlying filesystem or ASM diskgroup.
+2026-07-27T15:00:00.001609+09:00
+Closing scheduler window
+Closing Resource Manager plan via scheduler window
+Clearing Resource Manager plan via parameter
+2026-07-27T15:22:57.573723+09:00
+Incremental checkpoint up to RBA [0x9d.4fed.0], current log tail at RBA [0x9d.5155.0]
+2026-07-27T15:53:12.481566+09:00
+Incremental checkpoint up to RBA [0x9d.5826.0], current log tail at RBA [0x9d.598a.0]
+2026-07-27T16:23:24.907049+09:00
+Incremental checkpoint up to RBA [0x9d.7c10.0], current log tail at RBA [0x9d.7ce8.0]
+2026-07-27T16:53:37.697922+09:00
+Incremental checkpoint up to RBA [0x9d.83eb.0], current log tail at RBA [0x9d.84c7.0]
+2026-07-27T17:23:50.564359+09:00
+Incremental checkpoint up to RBA [0x9d.a72f.0], current log tail at RBA [0x9d.a803.0]
+2026-07-27T17:54:05.793325+09:00
+Incremental checkpoint up to RBA [0x9d.af26.0], current log tail at RBA [0x9d.affb.0]
+2026-07-27T18:24:19.114006+09:00
+Incremental checkpoint up to RBA [0x9d.d109.0], current log tail at RBA [0x9d.d225.0]
+2026-07-27T18:54:33.121121+09:00
+Incremental checkpoint up to RBA [0x9d.d8cf.0], current log tail at RBA [0x9d.d9fc.0]
+2026-07-27T19:01:43.778212+09:00
+Beginning log switch checkpoint up to RBA [0x9e.2.10], SCN: 13058389
+2026-07-27T19:01:43.778325+09:00
+Thread 1 advanced to log sequence 158 (LGWR switch)
+  Current log# 2 seq# 158 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-07-27T19:01:44.464330+09:00
+ARC2 (PID:2319): Archived Log entry 261 added for T-1.S-157 ID 0x4cc2c1cf LAD:1
+2026-07-27T19:03:17.060909+09:00
+Beginning global checkpoint up to RBA [0x9e.5f.10], SCN: 13058585
+Completed checkpoint up to RBA [0x9e.5f.10], SCN: 13058585
+Completed checkpoint up to RBA [0x9e.2.10], SCN: 13058389
+2026-07-27T19:04:30.581049+09:00
+ALTER SYSTEM SET open_cursors=200 SCOPE=BOTH;
+2026-07-27T19:04:57.571140+09:00
+ALTER SYSTEM SET open_cursors=100 SCOPE=BOTH;
+2026-07-27T19:06:55.586596+09:00
+CREATE TABLESPACE test_ts DATAFILE SIZE 20M AUTOEXTEND ON
+Completed: CREATE TABLESPACE test_ts DATAFILE SIZE 20M AUTOEXTEND ON
+2026-07-27T19:07:22.036832+09:00
+ALTER TABLESPACE test_ts OFFLINE
+Completed: ALTER TABLESPACE test_ts OFFLINE
+2026-07-27T19:14:34.887043+09:00
+Control autobackup written to DISK device
+
+handle '/home/oracle/clone/c-1284554106-20260727-00'
+
+2026-07-27T19:14:50.099172+09:00
+ALTER DATABASE DATAFILE '...test_ts...' RESIZE 40M
+ORA-7345 signalled during: ALTER DATABASE DATAFILE '...test_ts...' RESIZE 40M...
+2026-07-27T19:18:36.658372+09:00
+ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORA19C/datafile/o1_mf_test_ts_o6gcfzm1_.dbf' RESIZE 40M
+ORA-376 signalled during: ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORA19C/datafile/o1_mf_test_ts_o6gcfzm1_.dbf' RESIZE 40M...
+2026-07-27T19:18:36.899594+09:00
+Checker run found 2 new persistent data failures
+2026-07-27T19:19:35.372592+09:00
+ALTER TABLESPACE test_ts ONLINE
+Completed: ALTER TABLESPACE test_ts ONLINE
+2026-07-27T19:24:38.271676+09:00
+Control autobackup written to DISK device
+
+handle '/home/oracle/clone/c-1284554106-20260727-01'
+
+2026-07-27T19:24:47.009853+09:00
+Incremental checkpoint up to RBA [0x9e.6e3.0], current log tail at RBA [0x9e.80b.0]
+2026-07-27T19:28:04.850685+09:00
+ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORA19C/datafile/o1_mf_test_ts_o6gcfzm1_.dbf' RESIZE 40M
+2026-07-27T19:28:05.274566+09:00
+Resize operation completed for file# 10, old size 20480K, new size 40960K
+Completed: ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORA19C/datafile/o1_mf_test_ts_o6gcfzm1_.dbf' RESIZE 40M
