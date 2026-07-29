@@ -45,8 +45,11 @@ def parse_blocks(lines, ts_pattern=TS, ora_pattern=ORA):
       current["raw_lines"].append(line)
       if not current["message"]:
         current["message"] = line
-      if ora_pattern.findall(line):
-        current["ora_codes"].extend(ora_pattern.findall(line))
+
+      found_ora_codes = ora_pattern.findall(line)
+      
+      if found_ora_codes:
+        current["ora_codes"].extend(found_ora_codes)
         current["has_ora"] = True
   if current is not None:
     blocks.append(current)
