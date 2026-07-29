@@ -60,6 +60,10 @@ if __name__ == "__main__":
     file = f.read()
     blocks = parse_blocks(file.strip().splitlines())
 
+    ora_count = 0
     for block in blocks:
       if block["ora_codes"]:
         print(f"\ntimestamp: {block['timestamp']}\nORA codes: {block['ora_codes']}\nMessage: {block['message']}")
+        ora_count += 1
+
+    print(f"\n총 {len(blocks)}개 중 ORA 코드가 포함된 블록: {ora_count}개")
