@@ -1,0 +1,542 @@
+# Oracle alert log 이벤트 사전
+#
+# 출처: corpus/alert_corpus_20260806.log (1,852줄, 9개 시나리오 라벨됨)
+#       alert_ora19c.log (0주차 발췌본)  ← source: week0 으로 표시된 항목
+#
+# 두 단계로 나눈다.
+#   1단계 roles  : 모든 줄을 역할로 나눈다. 커버리지 100% 가 목표.
+#   2단계 events : signal 로 남은 줄에만 이벤트 타입을 붙인다.
+#
+# 매칭은 위에서부터 순서대로, 첫 매치가 이긴다. 순서가 곧 우선순위다.
+#
+# -- 이 구조인 이유 --
+#   - 블록(타임스탬프 단위)은 이벤트가 아니다. 한 이벤트가 두 블록에 걸치기도 하고
+#     (S03 ORA-00060), 한 블록에 네 이벤트가 들어가기도 한다 (S04).
+#     -> 분류 단위는 블록이 아니라 줄이다.
+#   - 이벤트는 여러 줄이다. 명령 원문이 개행을 포함하고 (S04),
+#     에러는 스택으로 쌓이며 (S05), 들여쓰기가 연속의 단서다.
+#     -> continuation 역할을 따로 둔다.
+#   - severity 는 ORA 코드 유무로도 키워드로도 정할 수 없다.
+#     결정적인 줄에 코드가 없고 (Stuck archiver condition declared),
+#     무해한 줄이 경고로 보인다 (Archival stopped).
+#     -> severity 는 사전에 명시적으로 박는다. 추론하지 않는다.
+
+meta:
+  version: 1
+  ora_normalize: true      # ORA-1157 과 ORA-01157 은 같은 코드. 5자리로 통일한다.
+
+# severity 척도
+#   noise    통째로 숨겨도 되는 정보성 반복. 개수만 보고한다.
+#   info     정상 동작의 기록
+#   notice   사람이 알아둘 상태 변화 (기동/정지)
+#   warn     정상은 아니나 DB 가 스스로 처리함
+#   error    작업 하나가 실패함
+#   critical DB 전체가 멈추거나 데이터가 위험함
+
+# ═══════════════════════════════════════════════════════
+# 1단계 — 줄 역할
+# ═══════════════════════════════════════════════════════
+roles:
+
+  - id: timestamp
+    desc: 블록 헤더. 이벤트가 아니라 구조다.
+    match: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}'
+
+  - id: marker
+    desc: 코퍼스 라벨용으로 KSDWRT 로 박아넣은 줄. 실제 로그에는 없다.
+    match: '^### '
+
+  - id: blank
+    match: '^\s*$'
+
+  - id: continuation
+    desc: |
+      앞 줄에 딸린 줄.
+
+      대부분은 들여쓰기가 단서다 (224줄 중 대다수):
+        "  Current log# 2 seq# 83 mem# 0: /u01/..."      (95회, 최다)
+        "  DATAFILE '/u01/...' SIZE 10M AUTOEXTEND OFF"  (여러 줄 명령의 2번째 줄)
+
+      ★ 그런데 들여쓰기 없는 연속 줄이 있다. 한 문장이 여러 줄로 접힌 경우다:
+        "db_recovery_file_dest_size of 8256 MB is 24.24% used. This is a"
+        "user-specified limit on the amount of space that will be used by this"
+        "database for recovery-related files, and does not reflect the amount of"
+        "space available in the underlying filesystem or ASM diskgroup."
+      첫 줄이 관사 "This is a" 로 끝난다. 들여쓰기가 전혀 없다.
+
+      "소문자로 시작하면 연속" 이라는 규칙도 쓸 수 없다. 독립 줄인데
+      소문자로 시작하는 것들이 있다 —
+        "stopping change tracking" / "starting up 1 dispatcher(s)" /
+        "replication_dependency_tracking turned off"
+      → 일반 규칙이 없다. 알려진 접힘 문구를 명시적으로 나열하는 수밖에 없다.
+        새 로그에서 미분류가 뜨면 이 목록에 추가하는 방식으로 유지한다.
+
+      ★ 이 역할이 없으면 "한 줄 = 한 이벤트" 가정이 깨지는 곳에서 전부 오분류된다.
+    any:
+      - '^\s+\S'                                    # 들여쓰기 (일반)
+      - '^\d+\.\s'                                  # 번호 목록 (RMAN 조치 안내)
+      - '^user-specified limit on the amount'       # FRA 안내문 접힘 2행
+      - '^database for recovery-related files'      # FRA 안내문 접힘 3행
+      - '^space available in the underlying'        # FRA 안내문 접힘 4행
+
+  # ── noise: 기동 시 쏟아지는 환경 덤프 ────────────────
+  # 코퍼스 1,852줄 중 이 부류가 약 700줄. 도구의 첫 번째 일은 이걸 치우는 것이다.
+  - id: noise
+    desc: 정보성 반복. 기본 출력에서 감추고 개수만 보고한다.
+    any:
+      # 패치 정보 덤프 — 단일 최대 노이즈원 (249줄이 순수 숫자 나열)
+      - '^Dumping current patch information'
+      - '^Patch (Id|Description|Apply Time):'
+      - '^Bugs Fixed:'
+      - '^[\d,]+,?\s*$'                        # 버그번호만 있는 줄
+      # 배너
+      - '^[*=\-]{10,}\s*$'
+      # 백그라운드 프로세스 기동/정지 (30여 개가 매 기동마다)
+      - '^Starting background process '
+      - '^[A-Z][A-Z0-9]{2,4} started with pid='
+      - '^LGWR slave \w+ created with pid='
+      # 환경/버전/라이선스
+      - '^(Oracle Database \d+c|Version:?\s|ORACLE_HOME:|ORACLE_BASE)'
+      - '^(System name|Node name|Release|Machine):'
+      - '^LICENSE_(MAX_SESSION|SESSIONS_WARNING|MAX_USERS)'
+      - '^(Initial number of CPU|Number of processor|Setting CPU count)'
+      - '^(IMODE=|ILAT\s*=)'
+      # SGA / 페이지 크기 덤프
+      - '^Dump of system resources acquired'
+      - '^(RECOMMENDATION|Capability Type|capabilities requested)'
+      - '^NOTE: '
+      - '^QPI: '
+      # 파라미터 목록 (헤더만; 개별 항목은 들여쓰기라 continuation 으로 잡힌다)
+      - '^(System parameters with non-default values|Using parameter settings)'
+      - '^Using (LOG_ARCHIVE_DEST|default pga_aggregate_limit)'
+      # 기타 기동 상용구
+      - '^(Autotune of undo retention|SYS auditing is enabled)'
+      - '^(Endian type of dictionary|Database Characterset|Lost write protection)'
+      - '^(Ping without log force|MTTR advisory|replication_dependency_tracking)'
+      - '^(Verifying (minimum )?file header compatibility)'
+      - '^joxcsys_required_dirobj_exists'
+      - '^Redo log for group \d+, sequence \d+ is not located on DAX'
+      - '^starting up \d+ (dispatcher|shared server)'
+      - '^\.\.\.\. \(PID:\d+\): (Redo network throttle|Using STANDBY_ARCHIVE_DEST)'
+      - '^TABLE [\w$]+\.[\w$]+: ADDED INTERVAL PARTITION'   # AUD$UNIFIED — $ 때문에 \w 로는 안 잡힌다
+      - '^VKTM running at '
+      - '^Oracle running with ofslib:'
+      - '^\[\d+\] Successfully onlined Undo Tablespace'
+      # 아래는 0주차 로그(alert_ora19c.log)를 돌려보고 추가한 것들
+      - '^Large pages will not be used'
+      - '^Alloc(ating|ated) \d+ bytes in shared pool'
+      - '^Block change tracking file is'
+
+  # 위 어느 것도 아니면 signal. 2단계로 넘어간다.
+
+# ═══════════════════════════════════════════════════════
+# 2단계 — 이벤트 타입 (signal 줄만)
+# ═══════════════════════════════════════════════════════
+# role     : atomic | open | close   ← 짝을 이루는 이벤트 표시. 중첩 가능(S08 참조)
+# pair_key : 짝을 잇는 키
+events:
+
+  # ── lifecycle : 인스턴스 생명주기 ──────────────────
+  - id: lifecycle.instance_start
+    severity: notice
+    role: open
+    pair_key: instance
+    match: '^Starting ORACLE instance'
+
+  - id: lifecycle.shutdown_immediate
+    severity: notice
+    role: open
+    pair_key: instance
+    match: '^Shutting down ORACLE instance \(immediate\)'
+
+  - id: lifecycle.shutdown_abort
+    severity: warn                 # ★ 여기가 abort 판별의 유일한 지점
+    role: open
+    pair_key: instance
+    match: '^Shutting down ORACLE instance \(abort\)'
+    note: |
+      S07(immediate)과 S08(abort)의 유일한 텍스트 판별자다.
+      단 이것은 "의도된" abort 에만 해당한다. 전원 차단·kill -9 는
+      아무 기록도 남기지 않으므로, 다음 기동의 crash recovery 로만 알 수 있다.
+      (S00 이 그 경우다 — corpus/manifest.yaml S00 verify 참조)
+
+  - id: lifecycle.instance_terminated
+    severity: warn
+    role: atomic
+    any:
+      - '^USER \(ospid: \d+\): terminating the instance'
+      - '^Instance terminated by USER'
+
+  - id: lifecycle.shutdown_complete
+    severity: notice
+    role: close
+    pair_key: instance
+    match: '^Instance shutdown complete'
+
+  - id: lifecycle.db_mount
+    severity: notice
+    match: '^(ALTER DATABASE\s+MOUNT|Database mounted in Exclusive Mode|Successful mount of redo thread)'
+
+  - id: lifecycle.db_open
+    severity: notice
+    match: '^(ALTER DATABASE OPEN|Successful open of redo thread)'
+
+  - id: lifecycle.db_close
+    severity: notice
+    match: '^ALTER DATABASE (CLOSE NORMAL|DISMOUNT)'
+
+  - id: lifecycle.bg_process_stop
+    severity: info
+    match: '^Stopping background process'
+
+  - id: lifecycle.shutdown_step
+    severity: info
+    desc: |
+      ★ 정상 종료 과정의 문구들. 전부 무해한데 위협적으로 들린다.
+        "Archiving is disabled" / "Process termination requested" /
+        "further logons disabled"
+      키워드로 severity 를 매기면 모든 정상 종료가 오탐이 된다. (S07 발견)
+    any:
+      - '^Shutting down instance: further logons disabled'
+      - '^Process termination requested for pid'
+      - '^(Dispatchers and shared servers shutdown|Stopping Emon pool)'
+      - '^Data Pump shutdown on PDB'
+      - '^(IM on ADG|JIT: pid \d+ requesting stop)'
+      - '^Buffer Cache invalidation for all PDBs'
+      - '^License high water mark'
+
+  # ── recovery : 복구 ────────────────────────────────
+  - id: recovery.crash_begin
+    severity: warn
+    role: open
+    pair_key: crash_recovery
+    match: '^Beginning crash recovery of'
+    note: 이 줄의 존재 자체가 "직전에 비정상 종료가 있었다"는 증거다.
+
+  - id: recovery.redo_scan_begin
+    severity: info
+    role: open
+    pair_key: redo_scan
+    match: '^Started redo scan'
+
+  - id: recovery.redo_scan_end
+    severity: info
+    role: close
+    pair_key: redo_scan
+    match: '^Completed redo scan'
+
+  - id: recovery.redo_apply_begin
+    severity: info
+    role: open
+    pair_key: redo_apply
+    match: '^Started redo application at'
+
+  - id: recovery.redo_apply_end
+    severity: info
+    role: close
+    pair_key: redo_apply
+    match: '^Completed redo application of'
+    note: 복구량을 MB 로 준다. 사람에게 보여줄 수 있는 몇 안 되는 정량 지표.
+
+  - id: recovery.crash_end
+    severity: info
+    role: close
+    pair_key: crash_recovery
+    match: '^Completed crash recovery at'
+
+  - id: recovery.online_redo
+    severity: info
+    match: '^Recovery of Online Redo Log:'
+
+  - id: recovery.smon_txn
+    severity: info
+    match: '^SMON: Parallel transaction recovery'
+
+  - id: recovery.undo_init
+    severity: noise
+    match: '^Undo initialization'
+    note: |
+      ★ 함정. 이름에 recovery 가 들어 있지만 정상 기동 절차다.
+      "recovery" 로 grep 하면 crash recovery 가 0건인 구간에서도 걸린다. (S07 발견)
+
+  # ── archive : redo / 아카이브 ──────────────────────
+  - id: archive.stuck_declared
+    severity: critical
+    role: open
+    pair_key: stuck_archiver
+    match: 'Stuck archiver condition declared'
+    note: |
+      ★ 코퍼스에서 가장 중요한 한 줄.
+      S01(무해)과 S06(치명)이 어휘를 거의 전부 공유하는데,
+      이 줄만 S01=0 / S06=1 이다. 유일한 텍스트 판별자다.
+      그리고 ORA 코드가 없다 — has_ora 기반 필터로는 절대 안 잡힌다.
+
+  - id: archive.stuck_cleared
+    severity: notice
+    role: close
+    pair_key: stuck_archiver
+    match: 'Stuck archiver condition cleared'
+    note: |
+      해소 신호. declared 와 대칭이라 "아직 진행 중인가"를 판정할 수 있다.
+      ★ 선언(ARC0)과 해제(TT00)의 프로세스가 다르다. 프로세스명으로 짝지으면 안 된다.
+
+  - id: archive.stuck_detail
+    severity: critical
+    match: 'Stuck archiver: '
+
+  - id: archive.error
+    severity: error
+    any:
+      - '^ARC\d+ \(PID:\d+\): Error \d+ Creating archive log file'
+      - 'archival error, archiver continuing'
+      - 'Archival error occurred on a closed thread'
+    note: '"archiver continuing" 이라고 쓰여 있지만 실제로는 멈춘 상태다.'
+
+  - id: archive.contention
+    severity: warn
+    match: '^Thread \d+ cannot allocate new log'
+    note: |
+      ★ S01(무해, 10회)과 S06(치명, 21회)에 똑같이 나온다.
+      이 줄 하나로는 심각도를 판정할 수 없다. 다음 줄(이유)과
+      반복 횟수, 그리고 stuck_declared 의 유무를 함께 봐야 한다.
+
+  - id: archive.contention_ckpt
+    severity: warn
+    match: '^Checkpoint not complete'
+    note: DBWR 가 못 따라감. S01=9 / S06=12
+
+  - id: archive.contention_arch
+    severity: warn
+    match: '^All online logs need archiving'
+    note: ARCH 가 못 따라감. S01=1 / S06=9
+
+  - id: archive.contention_advice
+    severity: warn
+    any:
+      - '^Examine archive trace files for archiving errors'
+      - '^ORACLE Instance \S+ - Cannot allocate log, archival required'
+
+  - id: archive.log_switch
+    severity: info
+    match: '^Thread \d+ advanced to log sequence .*\(LGWR switch\)'
+
+  - id: archive.thread_open
+    severity: info
+    match: '^Thread \d+ advanced to log sequence .*\(thread open\)'
+    note: 접미사로 log_switch 와 갈린다. 기동 시 최초 오픈.
+
+  - id: archive.thread_close
+    severity: info
+    match: '^(Thread \d+ (closed|opened) at log sequence|Successful close of redo thread)'
+
+  - id: archive.archived
+    severity: info
+    match: 'Archived Log entry \d+ added'
+    note: |
+      해소 직후 한꺼번에 몰린다 (S06 에서 57ms 안에 3건).
+      갑자기 몰리면 그 앞에 정체가 있었다는 역방향 단서.
+
+  - id: archive.arch_start
+    severity: info
+    any:
+      - 'STARTING ARCH PROCESSES'
+      - 'ARC\d+: Archival started'
+      - 'Gap Manager starting'
+      - 'Becoming (a|the) .* ARCH'
+
+  - id: archive.arch_stop
+    severity: info
+    any:
+      - '^Shutting down archive processes'
+      - '^Archiving is disabled'
+      - 'ARCH shutting down'
+      - 'Archival stopped'
+      - 'Archival disabled due to shutdown'
+      - 'Gap Manager exiting'
+    note: |
+      ★ "Archival stopped" 는 정상 종료 과정에 나온다 (S07).
+      장애 신호처럼 보이지만 아니다. 실제 아카이버 정지는
+      archive.stuck_declared 이며 문구가 전혀 다르다.
+
+  # ── checkpoint ────────────────────────────────────
+  - id: checkpoint.incremental
+    severity: noise
+    match: '^Incremental checkpoint up to RBA'
+    source: week0
+    note: 이번 코퍼스에는 없다(세션이 짧아서). 0주차 로그에서는 15회로 최다 노이즈였다.
+
+  - id: checkpoint.begin
+    severity: info
+    role: open
+    pair_key: checkpoint
+    match: '^Beginning (log switch|global) checkpoint'
+    source: week0
+
+  - id: checkpoint.completed
+    severity: noise
+    role: close
+    pair_key: checkpoint
+    match: '^Completed checkpoint up to RBA'
+    source: week0
+
+  # ── ddl : 사용자 명령 ──────────────────────────────
+  # ★ lifecycle 의 ALTER DATABASE MOUNT/OPEN/CLOSE 보다 뒤에 와야 한다 (순서 중요)
+  - id: ddl.failed
+    severity: error
+    role: close
+    pair_key: command
+    match: '^ORA-\d{3,5} signalled during: '
+    note: |
+      명령 원문이 "..." 로 잘린다. 짝을 지으려면 접두 일치를 써야 한다.
+      ★ 여기 ORA 코드는 패딩이 없다 (ORA-1157). 스택 안의 것은 있다 (ORA-01157).
+        같은 사건, 같은 블록, 두 표기. 정규화 없이는 두 번 센다. (S05 발견)
+
+  - id: ddl.completed
+    severity: info
+    role: close
+    pair_key: command
+    match: '^Completed: '
+
+  - id: ddl.command
+    severity: info
+    role: open
+    pair_key: command
+    match: '^(ALTER|CREATE|DROP|TRUNCATE|GRANT|REVOKE)\s'
+    note: |
+      ★ ALTER SYSTEM SET 은 Completed: 를 남기지 않는다 (0주차 발견, S06 재확인).
+        "완료 줄이 없다 = 실패" 규칙은 틀린다.
+      ★ 명령 원문이 여러 줄일 수 있다. 2번째 줄부터는 continuation 으로 잡힌다. (S04)
+      ★ 파싱 단계에서 거부된 명령은 아예 기록되지 않는다.
+        실행이 시작된 것만 남는다. (S04 발견 — 범위 한계)
+
+  - id: ddl.detail
+    severity: info
+    match: '^Resize operation completed for file#'
+
+  # ── fault : 장애 ──────────────────────────────────
+  - id: fault.error_header
+    severity: error
+    role: open
+    pair_key: error_stack
+    match: '^Errors in file .*\.trc'
+    note: |
+      ★ 이 줄과 뒤따르는 ORA 스택이 같은 블록일 때도(S05, S06),
+        다른 블록일 때도(S03) 있다. 78ms 차이로 갈렸다.
+      → 블록 경계로 자르면 안 되고, 이 헤더를 기준으로 병합해야 한다.
+      변종 2종: "(incident=N):" 이 붙는 것(ORA-00800)과 안 붙는 것(ORA-00060).
+
+  - id: fault.incident_details
+    severity: info
+    role: close
+    pair_key: error_stack
+    match: '^Incident details in:'
+    source: week0
+
+  - id: fault.checker
+    severity: critical
+    match: '^Checker run found \d+ new persistent data failures'
+    note: |
+      media failure 후 Health Checker 가 자동으로 남기는 요약.
+      ★ 파일 하나를 건드렸는데 "3 new" 로 센다.
+        Oracle 내부 카운트와 사람이 세는 사건 수는 다르다. (S05)
+
+  - id: fault.os_error
+    severity: error
+    match: '^(Linux|Solaris|HPUX|AIX)[\w\-]*\s+Error:\s*\d+:'
+    note: |
+      ★ 진짜 원인이 여기 있다. ORA-27041 은 "못 연다"는 증상이고,
+        왜 못 여는지(권한/파일없음/I-O)는 이 줄이 결정한다.
+        ORA 정규식으로는 절대 안 잡힌다. (S05 발견)
+
+  - id: fault.additional_info
+    severity: info
+    match: '^Additional information:'
+
+  - id: fault.priority
+    severity: warn
+    match: "^Error attempting to elevate .*priority"
+    source: week0
+    note: |
+      ★ "Error" 로 시작하지만 ORA 줄이 아니다.
+      0주차 로그의 ORA-00800(soft external error, [Set Priority Failed])과 짝을 이룬다.
+      VM 환경에서 실시간 우선순위를 못 얻어 발생하며 실무상 무해하다.
+      "결정적 정보가 ORA 코드 밖에 있다" 의 네 번째 사례.
+      (1 Stuck archiver / 2 cannot allocate new log / 3 Linux Error 13 / 4 여기)
+
+  # ── space : 공간 ──────────────────────────────────
+  # ★ 이 절은 fault.ora 보다 앞에 있어야 한다.
+  #   fault.ora 는 '^ORA-\d+:' 라 모든 ORA 줄을 먹어버린다.
+  #   특수 규칙이 일반 규칙보다 앞이어야 한다는 원칙이 여기서 처음 문제가 됐다.
+  - id: space.fra_warning
+    severity: warn
+    any:
+      - 'WARNING: db_recovery_file_dest_size of \d+ bytes is'
+      - '^You have following choices to free up space'
+
+  - id: space.fra_usage
+    severity: info
+    match: '^db_recovery_file_dest_size of \d+ MB is'
+    note: |
+      ★ 같은 문자열이 문맥에 따라 역할이 다르다.
+        기동 시(36.34%) = 단순 정보 / S06 복구 직후(24.24%) = 해소 확인 신호.
+
+  - id: space.extend_fail
+    severity: error
+    match: '^ORA-\d{3,5}: unable to extend'
+    note: |
+      DML 실행 중 실패도 alert log 에 남는다 (S04 에서 확인).
+      단 signalled during 형식이 아니라 메시지 단독 한 줄이라 짝지을 명령이 없다.
+
+  # ── backup ────────────────────────────────────────
+  - id: backup.autobackup
+    severity: info
+    match: '^Control autobackup written to'
+    note: |
+      명시적 RMAN 백업 뒤에는 5초 만에 기록되고(S02),
+      구조 변경이 암묵적으로 유발했을 때는 5~7분 뒤에 기록된다(0주차).
+      → 지연은 자동백업의 성질이 아니라 트리거의 성질이다.
+      ★ 범위 한계: 데이터파일 백업 자체는 alert log 에 남지 않는다.
+        alert log 만으로 백업 성패를 판정할 수 없다.
+
+  - id: backup.handle
+    severity: info
+    match: "^handle '"
+
+  # ── misc ──────────────────────────────────────────
+  - id: misc.file_deleted
+    severity: info
+    match: '^Deleted (Oracle managed )?file'
+
+  - id: misc.controlfile
+    severity: info
+    any:
+      - '^Expanded controlfile section'
+      - '^Requested to grow by \d+ records'
+      - '^Trying to expand controlfile section'
+
+  - id: misc.scheduler
+    severity: noise
+    any:
+      - '^(Setting|No) Resource Manager plan'
+      - '^(Closing|Clearing) Resource Manager plan'
+      - '^Closing scheduler window'
+      - '^(starting|stopping) change tracking'
+      - '^Block change tracking service is active'
+    source: week0
+
+  # ── 최후 수단 ─────────────────────────────────────
+  # 위 어느 규칙에도 안 걸린 ORA 줄. 반드시 목록의 맨 끝이어야 한다.
+  - id: fault.ora
+    severity: error
+    match: '^ORA-\d{3,5}:'
+    note: |
+      에러 스택의 구성원. 한 사건이 여러 줄의 ORA 를 만든다.
+      ★ 게다가 프로세스마다 각각 스택을 남긴다 (S05: DBW0 + MZ00, S06: ARC0 + TT00).
+        사건 1건 = ORA 코드 6개 = 블록 2개.
+        코드 개수를 사건 개수로 세면 안 된다.
+      ★ 메시지 본문에 다른 ORA 코드가 섞여 있을 수 있다
+        (ORA-00060 본문의 "Troubleshooting ORA-60 Errors").
+        그래서 줄 머리(^)로 제한한다.
+      ★ 이 항목이 목록 중간에 있으면 space.extend_fail / space.fra_warning 같은
+        구체적인 규칙을 전부 먹어버린다. 실제로 그렇게 만들었다가 잡았다.
+        커버리지 100% 가 정확도 100% 를 뜻하지 않는다는 사례.
