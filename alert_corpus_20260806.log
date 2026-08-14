@@ -1,0 +1,1852 @@
+2026-08-06T14:05:38.707364+09:00
+Starting ORACLE instance (normal) (OS id: 182163)
+2026-08-06T14:05:38.709468+09:00
+****************************************************
+ Sys-V shared memory will be used for creating SGA 
+ ****************************************************
+2026-08-06T14:05:38.710026+09:00
+**********************************************************************
+2026-08-06T14:05:38.710045+09:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2026-08-06T14:05:38.710079+09:00
+ Per process system memlock (soft) limit = 128G
+2026-08-06T14:05:38.710095+09:00
+ Expected per process system memlock (soft) limit to lock
+ instance MAX SHARED GLOBAL AREA (SGA) into memory: 1090M
+2026-08-06T14:05:38.710125+09:00
+ Available system pagesizes:
+  4K, 2048K 
+2026-08-06T14:05:38.710155+09:00
+ Supported system pagesize(s):
+2026-08-06T14:05:38.710170+09:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2026-08-06T14:05:38.710187+09:00
+        4K       Configured               2          278530        NONE
+2026-08-06T14:05:38.710215+09:00
+     2048K                0             545               0        NONE
+2026-08-06T14:05:38.710230+09:00
+RECOMMENDATION:
+2026-08-06T14:05:38.710245+09:00
+ 1. For optimal performance, configure system with expected number 
+ of pages for every supported system pagesize prior to the next 
+ instance restart operation.
+2026-08-06T14:05:38.712054+09:00
+**********************************************************************
+2026-08-06T14:05:41.815448+09:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2026-08-06T14:05:41.843285+09:00
+Initial number of CPU is 2
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Database Test 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as USE_DB_RECOVERY_FILE_DEST
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =51
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/19.3.0/dbhome_1
+System name:	Linux
+Node name:	ora19c.localdomain
+Release:	5.15.0-206.153.7.1.el8uek.x86_64
+Version:	#2 SMP Wed May 22 20:49:34 PDT 2024
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileora19c.ora
+System parameters with non-default values:
+  processes                = 300
+  nls_language             = "AMERICAN"
+  nls_territory            = "AMERICA"
+  sga_target               = 1088M
+  control_files            = "/u01/app/oracle/oradata/ORA19C/control01.ctl"
+  control_files            = "/u01/app/oracle/fast_recovery_area/ORA19C/control02.ctl"
+  db_block_size            = 8192
+  compatible               = "19.0.0"
+  log_archive_format       = "%t_%s_%r.dbf"
+  db_recovery_file_dest    = "/u01/app/oracle/fast_recovery_area"
+  db_recovery_file_dest_size= 8256M
+  undo_tablespace          = "UNDOTBS1"
+  remote_login_passwordfile= "EXCLUSIVE"
+  dispatchers              = "(PROTOCOL=TCP) (SERVICE=ora19cXDB)"
+  local_listener           = "LISTENER_ORA19C"
+  audit_file_dest          = "/u01/app/oracle/admin/ora19c/adump"
+  audit_trail              = "DB"
+  db_name                  = "ora19c"
+  open_cursors             = 300
+  pga_aggregate_target     = 363M
+  diagnostic_dest          = "/u01/app/oracle"
+2026-08-06T14:05:42.073736+09:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2026-08-06T14:05:42.801130+09:00
+PMON started with pid=2, OS id=182700 
+Starting background process CLMN
+2026-08-06T14:05:42.805101+09:00
+CLMN started with pid=3, OS id=182702 
+Starting background process PSP0
+2026-08-06T14:05:42.808669+09:00
+PSP0 started with pid=4, OS id=182704 
+2026-08-06T14:05:42.808691+09:00
+Starting background process VKTM
+2026-08-06T14:05:43.816125+09:00
+VKTM started with pid=5, OS id=182712 at elevated (RT) priority
+2026-08-06T14:05:43.816819+09:00
+Starting background process GEN0
+2026-08-06T14:05:43.817788+09:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+2026-08-06T14:05:43.821357+09:00
+GEN0 started with pid=6, OS id=182716 
+Starting background process MMAN
+2026-08-06T14:05:43.824704+09:00
+MMAN started with pid=7, OS id=182718 
+Starting background process GEN1
+2026-08-06T14:05:43.835612+09:00
+GEN1 started with pid=9, OS id=182722_182723 
+Starting background process DIAG
+2026-08-06T14:05:43.839165+09:00
+DIAG started with pid=11, OS id=182725 
+Starting background process OFSD
+2026-08-06T14:05:43.844936+09:00
+OFSD started with pid=12, OS id=182727_182728 
+2026-08-06T14:05:43.845203+09:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+Starting background process DBRM
+2026-08-06T14:05:43.852103+09:00
+DBRM started with pid=14, OS id=182730 
+Starting background process VKRM
+2026-08-06T14:05:43.859306+09:00
+VKRM started with pid=15, OS id=182732 
+Starting background process SVCB
+2026-08-06T14:05:43.867593+09:00
+SVCB started with pid=16, OS id=182734 
+Starting background process PMAN
+2026-08-06T14:05:43.873185+09:00
+PMAN started with pid=17, OS id=182736 
+Starting background process DIA0
+2026-08-06T14:05:43.877816+09:00
+DIA0 started with pid=18, OS id=182738 
+Starting background process DBW0
+Starting background process LGWR
+2026-08-06T14:05:43.885981+09:00
+DBW0 started with pid=19, OS id=182740 
+2026-08-06T14:05:43.891038+09:00
+LGWR started with pid=20, OS id=182742 
+2026-08-06T14:05:43.895995+09:00
+LGWR slave LG00 created with pid=21, OS pid=182744
+Starting background process CKPT
+2026-08-06T14:05:43.900455+09:00
+CKPT started with pid=22, OS id=182746 
+LGWR slave LG01 created with pid=23, OS pid=182748
+Starting background process SMON
+2026-08-06T14:05:43.917844+09:00
+SMON started with pid=24, OS id=182750 
+Starting background process SMCO
+2026-08-06T14:05:43.921662+09:00
+SMCO started with pid=25, OS id=182752 
+Starting background process RECO
+2026-08-06T14:05:43.929882+09:00
+RECO started with pid=27, OS id=182756 
+Starting background process LREG
+2026-08-06T14:05:43.940876+09:00
+LREG started with pid=29, OS id=182760 
+Starting background process PXMN
+2026-08-06T14:05:43.951326+09:00
+PXMN started with pid=30, OS id=182762 
+Starting background process FENC
+2026-08-06T14:05:43.955785+09:00
+FENC started with pid=31, OS id=182764 
+Starting background process MMON
+2026-08-06T14:05:43.965308+09:00
+MMON started with pid=32, OS id=182766 
+Starting background process MMNL
+2026-08-06T14:05:43.970226+09:00
+MMNL started with pid=31, OS id=182768 
+2026-08-06T14:05:43.971179+09:00
+starting up 1 dispatcher(s) for network address '(ADDRESS=(PARTIAL=YES)(PROTOCOL=TCP))'...
+starting up 1 shared server(s) ...
+Starting background process TMON
+2026-08-06T14:05:43.996147+09:00
+TMON started with pid=35, OS id=182775 
+Setting CPU count to 2
+ORACLE_BASE from environment = /u01/app/oracle
+2026-08-06T14:05:44.022285+09:00
+ALTER DATABASE   MOUNT
+2026-08-06T14:05:46.865838+09:00
+Using default pga_aggregate_limit of 2048 MB
+2026-08-06T14:05:48.056438+09:00
+.... (PID:182781): Redo network throttle feature is disabled at mount time
+2026-08-06T14:05:48.082758+09:00
+Successful mount of redo thread 1, with mount id 1293747192
+2026-08-06T14:05:48.083016+09:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:182781): Using STANDBY_ARCHIVE_DEST parameter default value as USE_DB_RECOVERY_FILE_DEST [krsd.c:18157]
+Completed: ALTER DATABASE   MOUNT
+2026-08-06T14:05:48.122414+09:00
+ALTER DATABASE OPEN
+2026-08-06T14:05:48.126620+09:00
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+2026-08-06T14:05:48.146819+09:00
+Beginning crash recovery of 1 threads
+ parallel recovery started with 2 processes
+ Thread 1: Recovery starting at checkpoint rba (logseq 22 block 46279), scn 0
+2026-08-06T14:05:48.154477+09:00
+Started redo scan
+2026-08-06T14:05:48.166468+09:00
+Completed redo scan
+ read 6121 KB redo, 1195 data blocks need recovery
+2026-08-06T14:05:48.235444+09:00
+Started redo application at
+ Thread 1: logseq 22, block 46279, offset 0
+2026-08-06T14:05:48.235583+09:00
+Recovery of Online Redo Log: Thread 1 Group 1 Seq 22 Reading mem 0
+  Mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:05:48.248673+09:00
+Completed redo application of 5.37MB
+2026-08-06T14:05:48.695824+09:00
+Completed crash recovery at
+ Thread 1: RBA 22.58521.16, nab 58521, scn 0x000000000033f22b
+ 1195 data blocks read, 1195 data blocks written, 6121 redo k-bytes read
+Endian type of dictionary set to little
+2026-08-06T14:05:48.731242+09:00
+LGWR (PID:182742): STARTING ARCH PROCESSES
+Starting background process ARC0
+2026-08-06T14:05:48.736094+09:00
+TT00 (PID:182819): Gap Manager starting
+2026-08-06T14:05:48.740115+09:00
+ARC0 started with pid=41, OS id=182821 
+2026-08-06T14:05:48.750273+09:00
+LGWR (PID:182742): ARC0: Archival started
+LGWR (PID:182742): STARTING ARCH PROCESSES COMPLETE
+2026-08-06T14:05:48.750366+09:00
+ARC0 (PID:182821): Becoming a 'no FAL' ARCH
+ARC0 (PID:182821): Becoming the 'no SRL' ARCH
+2026-08-06T14:05:48.775459+09:00
+Thread 1 advanced to log sequence 23 (thread open)
+Redo log for group 2, sequence 23 is not located on DAX storage
+Thread 1 opened at log sequence 23
+  Current log# 2 seq# 23 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+Successful open of redo thread 1
+2026-08-06T14:05:48.790987+09:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+stopping change tracking
+2026-08-06T14:05:48.835052+09:00
+ARC0 (PID:182821): Archived Log entry 18 added for T-1.S-22 ID 0x4cf47cdf LAD:1
+2026-08-06T14:05:48.872973+09:00
+Undo initialization recovery: err:0 start: 1184300937 end: 1184300946 diff: 9 ms (0.0 seconds)
+[182813] Successfully onlined Undo Tablespace 2.
+Undo initialization online undo segments: err:0 start: 1184300946 end: 1184300969 diff: 23 ms (0.0 seconds)
+Undo initialization finished serial:0 start:1184300937 end:1184300972 diff:35 ms (0.0 seconds)
+Verifying minimum file header compatibility for tablespace encryption..
+Verifying file header compatibility for tablespace encryption completed for pdb 0
+Database Characterset is AL32UTF8
+No Resource Manager plan active
+joxcsys_required_dirobj_exists: directory object exists with required path /u01/app/oracle/product/19.3.0/dbhome_1/javavm/admin/, pid 182813 cid 0
+replication_dependency_tracking turned off (no async multimaster replication found)
+2026-08-06T14:05:49.189479+09:00
+Starting background process AQPC
+2026-08-06T14:05:49.194290+09:00
+AQPC started with pid=43, OS id=182831 
+Starting background process CJQ0
+2026-08-06T14:05:49.316973+09:00
+CJQ0 started with pid=44, OS id=182833 
+Completed: ALTER DATABASE OPEN
+2026-08-06T14:05:49.743927+09:00
+TMON (PID:182775): STARTING ARCH PROCESSES
+Starting background process ARC1
+2026-08-06T14:05:49.748713+09:00
+ARC1 started with pid=45, OS id=182841 
+Starting background process ARC2
+2026-08-06T14:05:49.752789+09:00
+ARC2 started with pid=48, OS id=182843 
+Starting background process ARC3
+2026-08-06T14:05:49.756561+09:00
+ARC3 started with pid=49, OS id=182845 
+TMON (PID:182775): ARC1: Archival started
+TMON (PID:182775): ARC2: Archival started
+TMON (PID:182775): ARC3: Archival started
+TMON (PID:182775): STARTING ARCH PROCESSES COMPLETE
+2026-08-06T14:05:50.047849+09:00
+QPI: opatch file present, opatch
+QPI: qopiprep.bat file present
+2026-08-06T14:05:51.054043+09:00
+### S00 END cold-startup
+2026-08-06T14:05:51.154637+09:00
+===========================================================
+Dumping current patch information
+===========================================================
+Patch Id: 29517242
+Patch Description: Database Release Update : 19.3.0.0.190416 (29517242)
+Patch Apply Time: 2019-04-18T16:21:17+09:00
+Bugs Fixed: 14735102,19697993,20313356,21965541,25806201,25883179,25986062,
+26476244,26611353,26872233,27369515,27423500,27666312,27710072,27846298,
+27957203,28064977,28072567,28129791,28181021,28210681,28279456,28313275,
+28350595,28371123,28379065,28431445,28463226,28489419,28502773,28513333,
+28534475,28561704,28569897,28572533,28572544,28587723,28593682,28594086,
+28597221,28601957,28605066,28606598,28625862,28627033,28636532,28643718,
+28644549,28645570,28646200,28646939,28649388,28655209,28663782,28673945,
+28692275,28694872,28696373,28705231,28710385,28710734,28714461,28718469,
+28730079,28740708,28760206,28772390,28774416,28777214,28789531,28791852,
+28795551,28802734,28804517,28810381,28811560,28815123,28815355,28819640,
+28824482,28833912,28835937,28862532,28863432,28873575,28876253,28876639,
+28884931,28888327,28892794,28897512,28899663,28901126,28905457,28907196,
+28912691,28915561,28917080,28918429,28919145,28922227,28922532,28922608,
+28925634,28925880,28933158,28936114,28937717,28938698,28940179,28940281,
+28941901,28942455,28945421,28945994,28951533,28952168,28954762,28955606,
+28957292,28957723,28962775,28965231,28966444,28974083,28977322,28983095,
+28983486,28986326,28986481,28988482,28989306,28993295,28994307,28996376,
+29000000,29001888,29002927,29003738,29006318,29006621,29007321,29007775,
+29008035,29011936,29013475,29014076,29015118,29017265,29018655,29019121,
+29021063,29021352,29024552,29026582,29026606,29027456,29027694,29027940,
+29031575,29031600,29032234,29032457,29032607,29033052,29033145,29033200,
+29033280,29034587,29037290,29038528,29039089,29039510,29043554,29043651,
+29043725,29044763,29044954,29047850,29048289,29048498,29048605,29050560,
+29050765,29051702,29052726,29053783,29056024,29056270,29056560,29059011,
+29061959,29062692,29062848,29062860,29062868,29110526,29110783,29110790,
+29110797,29110802,29110805,29111598,29113282,29113305,29117526,29117642,
+29119077,29120223,29122224,29122254,29123297,29123432,29123482,29124368,
+29125380,29126345,29127957,29128935,29129450,29129497,29129712,29130219,
+29131539,29132938,29134447,29136111,29138641,29141316,29141341,29141685,
+29142667,29144995,29145214,29145730,29149829,29150338,29151520,29152357,
+29155099,29157389,29158680,29158899,29159909,29159936,29160174,29162095,
+29163415,29163437,29163524,29163567,29167111,29167342,29167374,29167940,
+29168219,29168433,29169073,29169215,29171942,29172618,29172826,29173140,
+29173373,29173817,29174004,29176318,29177466,29177543,29177886,29178385,
+29180313,29180455,29180559,29180893,29181153,29181231,29181620,29181743,
+29181923,29182019,29183912,29184297,29184666,29185193,29186456,29189302,
+29189307,29189889,29190235,29190474,29190740,29191541,29192419,29192468,
+29192685,29193207,29194205,29194367,29194493,29194827,29195279,29195337,
+29195758,29196725,29199635,29199733,29200316,29200700,29201494,29201539,
+29202104,29202850,29203122,29203166,29203425,29203443,29203604,29205281,
+29205323,29205419,29205463,29205767,29205918,29206109,29206605,29207073,
+29208260,29208732,29211457,29211724,29212012,29212433,29212611,29213351,
+29213775,29213850,29213879,29214561,29214960,29216746,29216984,29217294,
+29217472,29217828,29217848,29218570,29219205,29219273,29220079,29221248,
+29221891,29222031,29222784,29223833,29223859,29223967,29224065,29224605,
+29225076,29227602,29228869,29229164,29229754,29229844,29229955,29230252,
+29230565,29231133,29232117,29232154,29234123,29237538,29240307,29241345,
+29242017,29242884,29243958,29245137,29245160,29246163,29247415,29247712,
+29247906,29248552,29248835,29248858,29249991,29250059,29251259,29253184,
+29253871,29254031,29254930,29255178,29255273,29255431,29255435,29256426,
+29259119,29259320,29261906,29262512,29262887,29265448,29266248,29266899,
+29267292,29268412,29269171,29270585,29273539,29273735,29273847,29274428,
+29274564,29274627,29275461,29278218,29279658,29279751,29279854,29282898,
+29285503,29285788,29285956,29286037,29287130,29287705,29292837,29293072,
+29297863,29297915,29298220,29299049,29299082,29299844,29301566,29302963,
+29303918,29304781,29311588,29312310,29312734,29312753,29313347,29313417,
+29313525,29314539,29318410,29319441,29321489,29323946,29324568,29325087,
+29325105,29325257,29325993,29327044,29329087,29331209,29331380,29331493,
+29332771,29333500,29337310,29338315,29338453,29338780,29338913,29339155,
+29341209,29343086,29346943,29347620,29348176,29350052,29351386,29351716,
+29351749,29352867,29353271,29355654,29356547,29356752,29358828,29360672,
+29361801,29363151,29364171,29364177,29367019,29367561,29368253,29373418,
+29373588,29374179,29377986,29378029,29379978,29382784,29385652,29386502,
+29386635,29386660,29387274,29388094,29388524,29388830,29389889,29390435,
+29394140,29394749,29397954,29398863,29399100,29399121,29405012,29405651,
+29412066,29412269,29417884,29423826,29429264,29429566,29431485,29435652,
+29438736,29439522,29450421,29451386,29452576,29452953,29457807,29460252,
+29462957,29486181,29507616,29515240,29521748,29530812,29531654,29557336,
+29558975,29601461
+
+Patch Id: 29585399
+Patch Description: OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
+Patch Apply Time: 2019-04-18T16:21:33+09:00
+Bugs Fixed: 3,27222128,27572040,27604329,27760043,27877830,28302580,28470673,
+28621543,28642469,28699321,28710663,28755846,28772816,28785321,28800508,
+28808652,28815557,28847541,28847572,28870496,28871040,28874416,28877252,
+28881191,28881848,28888083,28911140,28925250,28925460,28935956,28940472,
+28942694,28951332,28963036,28968779,28980448,28995287,29003207,29003617,
+29016294,29018680,29024876,29026154,29027933,29047127,29052850,29058476,
+29111631,29112455,29117337,29123444,29125708,29125786,29129476,29131772,
+29132456,29139727,29146157,29147849,29149170,29152603,29152752,29154631,
+29154636,29154829,29159216,29159661,29160462,29161923,29169540,29169739,
+29170717,29173618,29181568,29182920,29183298,29186091,29191827,29201143,
+29201695,29209545,29210577,29210610,29210624,29210683,29213641,29219627,
+29224294,29225861,29229839,29235934,29242906,29243749,29244495,29244766,
+29244968,29248723,29249583,29251564,29255616,29260224,29261695,29271019,
+29273360,29282090,29282666,29285453,29285621,29290235,29292232,29293806,
+29294753,29299830,29307090,29307109,29311336,29329675,29330791,29339299,
+29357821,29360467,29360775,29367971,29368725,29379299,29379381,29380527,
+29381000,29382296,29391301,29393649,29402110,29411931,29413360,29457319,
+29465047
+===========================================================
+2026-08-06T14:05:52.490882+09:00
+db_recovery_file_dest_size of 8256 MB is 36.34% used. This is a
+user-specified limit on the amount of space that will be used by this
+database for recovery-related files, and does not reflect the amount of
+space available in the underlying filesystem or ASM diskgroup.
+2026-08-06T14:12:21.287082+09:00
+DROP TABLESPACE test_ts INCLUDING CONTENTS AND DATAFILES
+ORA-959 signalled during: DROP TABLESPACE test_ts INCLUDING CONTENTS AND DATAFILES...
+TABLE AUDSYS.AUD$UNIFIED: ADDED INTERVAL PARTITION SYS_P641 (146) VALUES LESS THAN (TIMESTAMP' 2026-09-01 00:00:00')
+2026-08-06T14:13:50.462449+09:00
+### S01 BEGIN log-switch-x20
+2026-08-06T14:13:50.480560+09:00
+Thread 1 advanced to log sequence 24 (LGWR switch)
+  Current log# 3 seq# 24 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:13:50.499339+09:00
+Thread 1 advanced to log sequence 25 (LGWR switch)
+  Current log# 1 seq# 25 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+Thread 1 cannot allocate new log, sequence 26
+Checkpoint not complete
+  Current log# 1 seq# 25 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:13:50.515522+09:00
+ARC1 (PID:182841): Archived Log entry 19 added for T-1.S-23 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:50.526906+09:00
+ARC2 (PID:182843): Archived Log entry 20 added for T-1.S-24 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:53.018944+09:00
+Thread 1 advanced to log sequence 26 (LGWR switch)
+  Current log# 2 seq# 26 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:13:53.042436+09:00
+Thread 1 advanced to log sequence 27 (LGWR switch)
+  Current log# 3 seq# 27 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:13:53.042540+09:00
+ARC3 (PID:182845): Archived Log entry 21 added for T-1.S-25 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:53.052481+09:00
+Thread 1 cannot allocate new log, sequence 28
+Checkpoint not complete
+  Current log# 3 seq# 27 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:13:53.061724+09:00
+ARC0 (PID:182821): Archived Log entry 22 added for T-1.S-26 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:56.262129+09:00
+Thread 1 advanced to log sequence 28 (LGWR switch)
+  Current log# 1 seq# 28 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:13:56.278769+09:00
+Thread 1 advanced to log sequence 29 (LGWR switch)
+  Current log# 2 seq# 29 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+Thread 1 cannot allocate new log, sequence 30
+Checkpoint not complete
+  Current log# 2 seq# 29 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:13:56.290966+09:00
+ARC2 (PID:182843): Archived Log entry 23 added for T-1.S-27 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:56.302170+09:00
+ARC3 (PID:182845): Archived Log entry 24 added for T-1.S-28 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:59.338448+09:00
+Thread 1 advanced to log sequence 30 (LGWR switch)
+  Current log# 3 seq# 30 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:13:59.361144+09:00
+Thread 1 advanced to log sequence 31 (LGWR switch)
+  Current log# 1 seq# 31 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:13:59.361380+09:00
+ARC0 (PID:182821): Archived Log entry 25 added for T-1.S-29 ID 0x4cf47cdf LAD:1
+2026-08-06T14:13:59.371442+09:00
+Thread 1 cannot allocate new log, sequence 32
+Checkpoint not complete
+  Current log# 1 seq# 31 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:13:59.380633+09:00
+ARC1 (PID:182841): Archived Log entry 26 added for T-1.S-30 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:02.380026+09:00
+Thread 1 advanced to log sequence 32 (LGWR switch)
+  Current log# 2 seq# 32 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:14:02.407044+09:00
+Thread 1 advanced to log sequence 33 (LGWR switch)
+  Current log# 3 seq# 33 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:14:02.412691+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 34
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 3 seq# 33 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:14:02.419029+09:00
+ARC3 (PID:182845): Archived Log entry 27 added for T-1.S-31 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:02.429358+09:00
+ARC0 (PID:182821): Archived Log entry 28 added for T-1.S-32 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:02.523570+09:00
+Thread 1 advanced to log sequence 34 (LGWR switch)
+  Current log# 1 seq# 34 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+Thread 1 cannot allocate new log, sequence 35
+Checkpoint not complete
+  Current log# 1 seq# 34 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:14:02.533036+09:00
+Trying to expand controlfile section 11 for Oracle Managed Files
+Expanded controlfile section 11 from 28 to 56 records
+Requested to grow by 28 records; added 1 blocks of records
+2026-08-06T14:14:02.538021+09:00
+ARC1 (PID:182841): Archived Log entry 29 added for T-1.S-33 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:05.343473+09:00
+Thread 1 advanced to log sequence 35 (LGWR switch)
+  Current log# 2 seq# 35 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:14:05.358900+09:00
+Thread 1 advanced to log sequence 36 (LGWR switch)
+  Current log# 3 seq# 36 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Thread 1 cannot allocate new log, sequence 37
+Checkpoint not complete
+  Current log# 3 seq# 36 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:14:05.371225+09:00
+ARC2 (PID:182843): Archived Log entry 30 added for T-1.S-34 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:05.381547+09:00
+ARC3 (PID:182845): Archived Log entry 31 added for T-1.S-35 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:08.378630+09:00
+Thread 1 advanced to log sequence 37 (LGWR switch)
+  Current log# 1 seq# 37 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:14:08.401508+09:00
+Thread 1 advanced to log sequence 38 (LGWR switch)
+  Current log# 2 seq# 38 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:14:08.401644+09:00
+ARC0 (PID:182821): Archived Log entry 32 added for T-1.S-36 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:08.411715+09:00
+Thread 1 cannot allocate new log, sequence 39
+Checkpoint not complete
+  Current log# 2 seq# 38 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:14:08.421826+09:00
+ARC1 (PID:182841): Archived Log entry 33 added for T-1.S-37 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:11.420886+09:00
+Thread 1 advanced to log sequence 39 (LGWR switch)
+  Current log# 3 seq# 39 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:14:11.442738+09:00
+Thread 1 advanced to log sequence 40 (LGWR switch)
+  Current log# 1 seq# 40 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:14:11.442825+09:00
+ARC3 (PID:182845): Archived Log entry 34 added for T-1.S-38 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:11.452373+09:00
+Thread 1 cannot allocate new log, sequence 41
+Checkpoint not complete
+  Current log# 1 seq# 40 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:14:11.461754+09:00
+ARC0 (PID:182821): Archived Log entry 35 added for T-1.S-39 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:14.361622+09:00
+Thread 1 advanced to log sequence 41 (LGWR switch)
+  Current log# 2 seq# 41 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T14:14:14.377493+09:00
+Thread 1 advanced to log sequence 42 (LGWR switch)
+  Current log# 3 seq# 42 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Thread 1 cannot allocate new log, sequence 43
+Checkpoint not complete
+  Current log# 3 seq# 42 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T14:14:14.389683+09:00
+ARC2 (PID:182843): Archived Log entry 36 added for T-1.S-40 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:14.400476+09:00
+ARC3 (PID:182845): Archived Log entry 37 added for T-1.S-41 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:17.397070+09:00
+Thread 1 advanced to log sequence 43 (LGWR switch)
+  Current log# 1 seq# 43 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T14:14:17.406898+09:00
+ARC0 (PID:182821): Archived Log entry 38 added for T-1.S-42 ID 0x4cf47cdf LAD:1
+2026-08-06T14:14:37.401200+09:00
+### S01 END
+2026-08-06T14:20:00.146074+09:00
+### S02 BEGIN rman-backup
+2026-08-06T14:20:06.008285+09:00
+Control autobackup written to DISK device
+
+handle '/u01/app/oracle/fast_recovery_area/ORA19C/autobackup/2026_08_06/o1_mf_s_1240582805_o786d5yd_.bkp'
+
+2026-08-06T14:20:17.447634+09:00
+### S02 END
+2026-08-06T14:26:21.989014+09:00
+### S03 BEGIN deadlock
+2026-08-06T14:59:53.418573+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_ora_190897.trc:
+2026-08-06T14:59:53.496460+09:00
+ORA-00060: Deadlock detected. See Note 60.1 at My Oracle Support for Troubleshooting ORA-60 Errors. More info in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_ora_190897.trc.
+2026-08-06T15:00:34.865632+09:00
+### S03 END
+2026-08-06T15:03:10.654245+09:00
+### S04 BEGIN tablespace-extend-fail
+2026-08-06T15:03:15.681103+09:00
+ALTER DATABASE DATAFILE '' RESIZE 30M
+ORA-7202 signalled during: ALTER DATABASE DATAFILE '' RESIZE 30M...
+2026-08-06T15:08:52.113897+09:00
+CREATE TABLESPACE ts_small
+  DATAFILE '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf' SIZE 10M AUTOEXTEND OFF
+Completed: CREATE TABLESPACE ts_small
+  DATAFILE '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf' SIZE 10M AUTOEXTEND OFF
+2026-08-06T15:08:52.444151+09:00
+ORA-1653: unable to extend table ALERTLAB.FILL_T by 128 in tablespace TS_SMALL 
+ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf' RESIZE 30M
+Resize operation completed for file# 5, old size 10240K, new size 30720K
+Completed: ALTER DATABASE DATAFILE '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf' RESIZE 30M
+2026-08-06T15:08:53.794425+09:00
+### S04 END
+2026-08-06T15:15:50.949157+09:00
+Control autobackup written to DISK device
+
+handle '/u01/app/oracle/fast_recovery_area/ORA19C/autobackup/2026_08_06/o1_mf_s_1240586150_o789npwk_.bkp'
+
+2026-08-06T15:16:41.435063+09:00
+### S05 BEGIN datafile-permission-denied
+ALTER TABLESPACE ts_small OFFLINE
+Completed: ALTER TABLESPACE ts_small OFFLINE
+ALTER TABLESPACE ts_small ONLINE
+2026-08-06T15:16:41.501950+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_dbw0_182740.trc:
+ORA-01157: cannot identify/lock data file 5 - see DBWR trace file
+ORA-01110: data file 5: '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf'
+ORA-27041: unable to open file
+Linux-x86_64 Error: 13: Permission denied
+Additional information: 9
+ORA-1157 signalled during: ALTER TABLESPACE ts_small ONLINE...
+2026-08-06T15:16:41.547696+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_mz00_209967.trc:
+ORA-01110: data file 5: '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf'
+ORA-01565: error in identifying file '/u01/app/oracle/oradata/ORA19C/ts_small01.dbf'
+ORA-27041: unable to open file
+Linux-x86_64 Error: 13: Permission denied
+Additional information: 9
+Checker run found 3 new persistent data failures
+2026-08-06T15:16:51.521967+09:00
+ALTER TABLESPACE ts_small ONLINE
+Completed: ALTER TABLESPACE ts_small ONLINE
+2026-08-06T15:16:51.552534+09:00
+### S05 END
+2026-08-06T15:25:51.073693+09:00
+Control autobackup written to DISK device
+
+handle '/u01/app/oracle/fast_recovery_area/ORA19C/autobackup/2026_08_06/o1_mf_s_1240586750_o78b7h1b_.bkp'
+
+2026-08-06T15:31:08.284150+09:00
+### S06 BEGIN fra-full
+2026-08-06T15:31:08.290653+09:00
+ALTER SYSTEM SET db_recovery_file_dest_size=4686M SCOPE=BOTH;
+2026-08-06T15:31:08.310451+09:00
+Thread 1 advanced to log sequence 44 (LGWR switch)
+  Current log# 2 seq# 44 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:08.327813+09:00
+Thread 1 advanced to log sequence 45 (LGWR switch)
+  Current log# 3 seq# 45 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Thread 1 cannot allocate new log, sequence 46
+Checkpoint not complete
+  Current log# 3 seq# 45 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:08.348185+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_06/o1_mf_1_5_o4rdwxjo_.arc
+2026-08-06T15:31:08.355834+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_07/o1_mf_1_6_o4t8o9vl_.arc
+2026-08-06T15:31:08.463625+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+2026-08-06T15:31:08.463654+09:00
+Thread 1 cannot allocate new log, sequence 46
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 3 seq# 45 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:08.466393+09:00
+ARC1 (PID:182841): Archived Log entry 39 added for T-1.S-43 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:08.478546+09:00
+ARC2 (PID:182843): Archived Log entry 40 added for T-1.S-44 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:08.545612+09:00
+Thread 1 advanced to log sequence 46 (LGWR switch)
+  Current log# 1 seq# 46 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:08.576029+09:00
+Thread 1 advanced to log sequence 47 (LGWR switch)
+  Current log# 2 seq# 47 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:08.582876+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 48
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 2 seq# 47 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:08.596306+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_08/o1_mf_1_7_o4y057jd_.arc
+2026-08-06T15:31:08.603487+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_10/o1_mf_1_8_o513hpxh_.arc
+2026-08-06T15:31:08.626716+09:00
+ARC0 (PID:182821): Archived Log entry 41 added for T-1.S-46 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:08.646326+09:00
+ARC3 (PID:182845): Archived Log entry 42 added for T-1.S-45 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:08.693215+09:00
+Thread 1 advanced to log sequence 48 (LGWR switch)
+  Current log# 3 seq# 48 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Thread 1 cannot allocate new log, sequence 49
+Checkpoint not complete
+  Current log# 3 seq# 48 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:08.707317+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_11/o1_mf_1_9_o5451c89_.arc
+2026-08-06T15:31:08.726141+09:00
+ARC1 (PID:182841): Archived Log entry 43 added for T-1.S-47 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:11.713855+09:00
+Thread 1 advanced to log sequence 49 (LGWR switch)
+  Current log# 1 seq# 49 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:11.736621+09:00
+Thread 1 advanced to log sequence 50 (LGWR switch)
+  Current log# 2 seq# 50 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+Thread 1 cannot allocate new log, sequence 51
+Checkpoint not complete
+  Current log# 2 seq# 50 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:11.750715+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_11/o1_mf_1_10_o563r28m_.arc
+2026-08-06T15:31:11.757909+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_12/o1_mf_1_11_o583noh4_.arc
+2026-08-06T15:31:11.786696+09:00
+ARC2 (PID:182843): Archived Log entry 44 added for T-1.S-48 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:11.798446+09:00
+ARC3 (PID:182845): Archived Log entry 45 added for T-1.S-49 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:14.757739+09:00
+Thread 1 advanced to log sequence 51 (LGWR switch)
+  Current log# 3 seq# 51 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:14.774190+09:00
+Thread 1 advanced to log sequence 52 (LGWR switch)
+  Current log# 1 seq# 52 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+Thread 1 cannot allocate new log, sequence 53
+Checkpoint not complete
+  Current log# 1 seq# 52 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:14.788418+09:00
+ARC0 (PID:182821): Archived Log entry 46 added for T-1.S-50 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:14.799495+09:00
+ARC1 (PID:182841): Archived Log entry 47 added for T-1.S-51 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:17.795089+09:00
+Thread 1 advanced to log sequence 53 (LGWR switch)
+  Current log# 2 seq# 53 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:17.811685+09:00
+Thread 1 advanced to log sequence 54 (LGWR switch)
+  Current log# 3 seq# 54 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Thread 1 cannot allocate new log, sequence 55
+Checkpoint not complete
+  Current log# 3 seq# 54 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:17.826006+09:00
+ARC2 (PID:182843): Archived Log entry 48 added for T-1.S-52 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:17.836920+09:00
+ARC3 (PID:182845): Archived Log entry 49 added for T-1.S-53 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:20.745708+09:00
+Thread 1 advanced to log sequence 55 (LGWR switch)
+  Current log# 1 seq# 55 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:20.779395+09:00
+Thread 1 advanced to log sequence 56 (LGWR switch)
+  Current log# 2 seq# 56 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:20.785734+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 57
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 2 seq# 56 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:20.793043+09:00
+ARC0 (PID:182821): Archived Log entry 50 added for T-1.S-54 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:20.804420+09:00
+ARC1 (PID:182841): Archived Log entry 51 added for T-1.S-55 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:20.896674+09:00
+Thread 1 advanced to log sequence 57 (LGWR switch)
+  Current log# 3 seq# 57 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:20.925775+09:00
+Thread 1 advanced to log sequence 58 (LGWR switch)
+  Current log# 1 seq# 58 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:20.932012+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 59
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 1 seq# 58 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:20.939519+09:00
+ARC2 (PID:182843): Archived Log entry 52 added for T-1.S-56 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:20.951132+09:00
+ARC3 (PID:182845): Archived Log entry 53 added for T-1.S-57 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:21.042812+09:00
+Thread 1 advanced to log sequence 59 (LGWR switch)
+  Current log# 2 seq# 59 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+Thread 1 cannot allocate new log, sequence 60
+Checkpoint not complete
+  Current log# 2 seq# 59 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:21.052959+09:00
+ARC0 (PID:182821): Archived Log entry 54 added for T-1.S-58 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:23.762948+09:00
+Thread 1 advanced to log sequence 60 (LGWR switch)
+  Current log# 3 seq# 60 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:23.785639+09:00
+Thread 1 advanced to log sequence 61 (LGWR switch)
+  Current log# 1 seq# 61 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:23.785894+09:00
+ARC1 (PID:182841): Archived Log entry 55 added for T-1.S-59 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:23.796171+09:00
+Thread 1 cannot allocate new log, sequence 62
+Checkpoint not complete
+  Current log# 1 seq# 61 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:23.806419+09:00
+ARC2 (PID:182843): Archived Log entry 56 added for T-1.S-60 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:26.806112+09:00
+Thread 1 advanced to log sequence 62 (LGWR switch)
+  Current log# 2 seq# 62 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:26.822721+09:00
+Thread 1 advanced to log sequence 63 (LGWR switch)
+  Current log# 3 seq# 63 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Thread 1 cannot allocate new log, sequence 64
+Checkpoint not complete
+  Current log# 3 seq# 63 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:26.835304+09:00
+ARC0 (PID:182821): Archived Log entry 57 added for T-1.S-61 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:26.846053+09:00
+ARC1 (PID:182841): Archived Log entry 58 added for T-1.S-62 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:29.764607+09:00
+Thread 1 advanced to log sequence 64 (LGWR switch)
+  Current log# 1 seq# 64 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:29.793771+09:00
+Thread 1 advanced to log sequence 65 (LGWR switch)
+  Current log# 2 seq# 65 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:29.800169+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 66
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 2 seq# 65 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:29.806762+09:00
+ARC2 (PID:182843): Archived Log entry 59 added for T-1.S-63 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:29.817884+09:00
+ARC3 (PID:182845): Archived Log entry 60 added for T-1.S-64 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:29.911151+09:00
+Thread 1 advanced to log sequence 66 (LGWR switch)
+  Current log# 3 seq# 66 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:29.940645+09:00
+Thread 1 advanced to log sequence 67 (LGWR switch)
+  Current log# 1 seq# 67 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:29.947079+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 68
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 1 seq# 67 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:29.954073+09:00
+ARC0 (PID:182821): Archived Log entry 61 added for T-1.S-65 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:29.964923+09:00
+ARC1 (PID:182841): Archived Log entry 62 added for T-1.S-66 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:30.058315+09:00
+Thread 1 advanced to log sequence 68 (LGWR switch)
+  Current log# 2 seq# 68 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:30.087077+09:00
+Thread 1 advanced to log sequence 69 (LGWR switch)
+  Current log# 3 seq# 69 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:30.093151+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 70
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 3 seq# 69 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:30.100183+09:00
+ARC2 (PID:182843): Archived Log entry 63 added for T-1.S-67 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:30.112650+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_13/o1_mf_1_12_o5c618z2_.arc
+2026-08-06T15:31:30.112679+09:00
+ARC3 (PID:182845): Archived Log entry 64 added for T-1.S-68 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:30.204333+09:00
+Thread 1 advanced to log sequence 70 (LGWR switch)
+  Current log# 1 seq# 70 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+Thread 1 cannot allocate new log, sequence 71
+Checkpoint not complete
+  Current log# 1 seq# 70 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:30.214222+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_14/o1_mf_1_13_o5ftfhwo_.arc
+2026-08-06T15:31:30.214260+09:00
+ARC0 (PID:182821): Archived Log entry 65 added for T-1.S-69 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:32.824469+09:00
+Thread 1 advanced to log sequence 71 (LGWR switch)
+  Current log# 2 seq# 71 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:31:32.853983+09:00
+Thread 1 advanced to log sequence 72 (LGWR switch)
+  Current log# 3 seq# 72 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:32.860140+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+Thread 1 cannot allocate new log, sequence 73
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 3 seq# 72 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:31:32.866791+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_15/o1_mf_1_14_o5jhsg7s_.arc
+2026-08-06T15:31:32.866821+09:00
+ARC1 (PID:182841): Archived Log entry 66 added for T-1.S-70 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:32.880959+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_16/o1_mf_1_15_o5m461q1_.arc
+2026-08-06T15:31:32.880997+09:00
+ARC2 (PID:182843): Archived Log entry 67 added for T-1.S-71 ID 0x4cf47cdf LAD:1
+2026-08-06T15:31:32.971151+09:00
+Thread 1 advanced to log sequence 73 (LGWR switch)
+  Current log# 1 seq# 73 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:31:32.980999+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_18/o1_mf_1_16_o5p23n1s_.arc
+2026-08-06T15:31:32.981030+09:00
+ARC3 (PID:182845): Archived Log entry 68 added for T-1.S-72 ID 0x4cf47cdf LAD:1
+2026-08-06T15:32:48.444990+09:00
+ALTER SYSTEM SET db_recovery_file_dest_size=4000M SCOPE=BOTH;
+2026-08-06T15:32:54.015209+09:00
+Thread 1 advanced to log sequence 74 (LGWR switch)
+  Current log# 2 seq# 74 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:32:54.025296+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_18/o1_mf_1_17_o5qydtqh_.arc
+2026-08-06T15:32:54.025329+09:00
+ARC0 (PID:182821): Archived Log entry 69 added for T-1.S-73 ID 0x4cf47cdf LAD:1
+2026-08-06T15:32:54.775786+09:00
+Thread 1 advanced to log sequence 75 (LGWR switch)
+  Current log# 3 seq# 75 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:32:54.786405+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_19/o1_mf_1_18_o5spo6w7_.arc
+2026-08-06T15:32:54.786436+09:00
+ARC1 (PID:182841): Archived Log entry 70 added for T-1.S-74 ID 0x4cf47cdf LAD:1
+2026-08-06T15:32:57.224309+09:00
+Thread 1 cannot allocate new log, sequence 76
+Checkpoint not complete
+  Current log# 3 seq# 75 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:32:59.474385+09:00
+Thread 1 advanced to log sequence 76 (LGWR switch)
+  Current log# 1 seq# 76 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:32:59.484991+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_19/o1_mf_1_19_o5v1dztf_.arc
+2026-08-06T15:32:59.485027+09:00
+ARC2 (PID:182843): Archived Log entry 71 added for T-1.S-75 ID 0x4cf47cdf LAD:1
+2026-08-06T15:33:11.866210+09:00
+Thread 1 advanced to log sequence 77 (LGWR switch)
+  Current log# 2 seq# 77 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:33:11.889233+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_20/o1_mf_1_20_o5xnpp7q_.arc
+2026-08-06T15:33:11.889277+09:00
+ARC3 (PID:182845): Archived Log entry 72 added for T-1.S-76 ID 0x4cf47cdf LAD:1
+2026-08-06T15:34:17.058406+09:00
+ALTER SYSTEM SET db_recovery_file_dest_size=2700M SCOPE=BOTH;
+2026-08-06T15:34:22.469986+09:00
+Thread 1 advanced to log sequence 78 (LGWR switch)
+  Current log# 3 seq# 78 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:34:22.480050+09:00
+Deleted Oracle managed file /u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_07_21/o1_mf_1_21_o6091m7j_.arc
+2026-08-06T15:34:22.480081+09:00
+ARC0 (PID:182821): Archived Log entry 73 added for T-1.S-77 ID 0x4cf47cdf LAD:1
+2026-08-06T15:34:23.215452+09:00
+Thread 1 advanced to log sequence 79 (LGWR switch)
+  Current log# 1 seq# 79 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:34:23.231106+09:00
+Expanded controlfile section 11 from 56 to 560 records
+Requested to grow by 504 records; added 18 blocks of records
+2026-08-06T15:34:23.231195+09:00
+ARC1 (PID:182841): Archived Log entry 74 added for T-1.S-78 ID 0x4cf47cdf LAD:1
+2026-08-06T15:34:23.809922+09:00
+Thread 1 cannot allocate new log, sequence 80
+Checkpoint not complete
+  Current log# 1 seq# 79 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:34:23.925490+09:00
+Thread 1 advanced to log sequence 80 (LGWR switch)
+  Current log# 2 seq# 80 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:34:23.935035+09:00
+ARC2 (PID:182843): Archived Log entry 75 added for T-1.S-79 ID 0x4cf47cdf LAD:1
+2026-08-06T15:34:24.518451+09:00
+Thread 1 advanced to log sequence 81 (LGWR switch)
+  Current log# 3 seq# 81 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:34:24.540579+09:00
+ARC3 (PID:182845): Archived Log entry 76 added for T-1.S-80 ID 0x4cf47cdf LAD:1
+2026-08-06T15:37:05.084826+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_m004_188847.trc:
+ORA-19815: WARNING: db_recovery_file_dest_size of 1887436800 bytes is 100.00% used, and has 0 remaining bytes available.
+2026-08-06T15:37:05.084848+09:00
+************************************************************************
+You have following choices to free up space from recovery area:
+1. Consider changing RMAN RETENTION POLICY. If you are using Data Guard,
+   then consider changing RMAN ARCHIVELOG DELETION POLICY.
+2. Back up files to tertiary device such as tape using RMAN
+   BACKUP RECOVERY AREA command.
+3. Add disk space and increase db_recovery_file_dest_size parameter to
+   reflect the new space.
+4. Delete unnecessary files using RMAN DELETE command. If an operating
+   system command was used to delete files, then use RMAN CROSSCHECK and
+   DELETE EXPIRED commands.
+************************************************************************
+2026-08-06T15:37:05.091300+09:00
+ALTER SYSTEM SET db_recovery_file_dest_size=1800M SCOPE=BOTH;
+2026-08-06T15:37:10.741273+09:00
+Thread 1 advanced to log sequence 82 (LGWR switch)
+  Current log# 1 seq# 82 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+2026-08-06T15:37:10.772321+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_arc0_182821.trc:
+ORA-19809: limit exceeded for recovery files
+ORA-19804: cannot reclaim 42496 bytes disk space from 1887436800 bytes limit
+2026-08-06T15:37:10.772353+09:00
+ARC0 (PID:182821): Error 19809 Creating archive log file to '/u01/app/oracle/fast_recovery_area/ORA19C/archivelog/2026_08_06/o1_mf_1_81_%u_.arc'
+ARC0 (PID:182821): Stuck archiver: inactive mandatory LAD:1
+ARC0 (PID:182821): Stuck archiver condition declared
+2026-08-06T15:37:10.786726+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_arc0_182821.trc:
+ORA-16038: log 3 sequence# 81 cannot be archived
+ORA-19809: limit exceeded for recovery files
+ORA-00312: online log 3 thread 1: '/u01/app/oracle/oradata/ORA19C/redo03.log'
+ARC0 (PID:182821): Archival error occurred on a closed thread, archiver continuing
+2026-08-06T15:37:10.786765+09:00
+ORACLE Instance ora19c, archival error, archiver continuing
+2026-08-06T15:37:11.356788+09:00
+Thread 1 advanced to log sequence 83 (LGWR switch)
+  Current log# 2 seq# 83 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:37:12.009178+09:00
+Thread 1 cannot allocate new log, sequence 84
+Checkpoint not complete
+  Current log# 2 seq# 83 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:37:14.512152+09:00
+ORACLE Instance ora19c - Cannot allocate log, archival required
+2026-08-06T15:37:14.512178+09:00
+Thread 1 cannot allocate new log, sequence 84
+All online logs need archiving
+Examine archive trace files for archiving errors
+  Current log# 2 seq# 83 mem# 0: /u01/app/oracle/oradata/ORA19C/redo02.log
+2026-08-06T15:37:49.370490+09:00
+Errors in file /u01/app/oracle/diag/rdbms/ora19c/ora19c/trace/ora19c_tt00_182819.trc:
+ORA-19809: limit exceeded for recovery files
+ORA-19804: cannot reclaim 209715200 bytes disk space from 1887436800 bytes limit
+2026-08-06T15:38:46.535646+09:00
+ALTER SYSTEM SET db_recovery_file_dest_size=8256M SCOPE=BOTH;
+2026-08-06T15:38:46.537467+09:00
+db_recovery_file_dest_size of 8256 MB is 24.24% used. This is a
+user-specified limit on the amount of space that will be used by this
+database for recovery-related files, and does not reflect the amount of
+space available in the underlying filesystem or ASM diskgroup.
+2026-08-06T15:38:46.541141+09:00
+Deleted file /u01/app/oracle/product/19.3.0/dbhome_1/dbs/archreact_test_4cf423df.arc
+TT00 (PID:182819): Stuck archiver condition cleared
+2026-08-06T15:38:46.557811+09:00
+ARC1 (PID:182841): Archived Log entry 77 added for T-1.S-81 ID 0x4cf47cdf LAD:1
+2026-08-06T15:38:46.578159+09:00
+ARC2 (PID:182843): Archived Log entry 78 added for T-1.S-82 ID 0x4cf47cdf LAD:1
+2026-08-06T15:38:46.604401+09:00
+Thread 1 advanced to log sequence 84 (LGWR switch)
+  Current log# 3 seq# 84 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:38:46.614655+09:00
+ARC3 (PID:182845): Archived Log entry 79 added for T-1.S-83 ID 0x4cf47cdf LAD:1
+2026-08-06T15:39:01.539046+09:00
+### S06 END
+2026-08-06T15:54:56.834749+09:00
+### S07 BEGIN restart-clean
+Shutting down ORACLE instance (immediate) (OS id: 190897)
+2026-08-06T15:54:59.546527+09:00
+Stopping background process SMCO
+2026-08-06T15:55:00.549328+09:00
+Shutting down instance: further logons disabled
+2026-08-06T15:55:00.575838+09:00
+Stopping background process CJQ0
+Stopping background process MMNL
+2026-08-06T15:55:01.578817+09:00
+Stopping background process MMON
+2026-08-06T15:55:03.579456+09:00
+License high water mark = 16
+2026-08-06T15:55:03.609800+09:00
+Dispatchers and shared servers shutdown
+
+Data Pump shutdown on PDB: 0 in progress
+2026-08-06T15:55:03.610016+09:00
+Process termination requested for pid 218365 [source = rdbms], [info = 2] [request issued by pid: 190897, uid: 54321]
+2026-08-06T15:55:05.611111+09:00
+ALTER DATABASE CLOSE NORMAL
+2026-08-06T15:55:05.617067+09:00
+Stopping Emon pool
+2026-08-06T15:55:06.618127+09:00
+
+IM on ADG: Start of Empty Journal 
+
+IM on ADG: End of Empty Journal 
+Stopping Emon pool
+stopping change tracking
+2026-08-06T15:55:06.666479+09:00
+Shutting down archive processes
+2026-08-06T15:55:06.666595+09:00
+TT00 (PID:182819): Gap Manager exiting
+2026-08-06T15:55:07.666745+09:00
+Archiving is disabled
+2026-08-06T15:55:07.666917+09:00
+ARC3 (PID:182845): ARCH shutting down
+ARC3 (PID:182845): Archival stopped
+2026-08-06T15:55:07.666988+09:00
+ARC1 (PID:182841): ARCH shutting down
+ARC1 (PID:182841): Archival stopped
+2026-08-06T15:55:07.667055+09:00
+ARC0 (PID:182821): ARCH shutting down
+ARC0 (PID:182821): Archival stopped
+2026-08-06T15:55:07.667132+09:00
+ARC2 (PID:182843): ARCH shutting down
+ARC2 (PID:182843): Archival stopped
+2026-08-06T15:55:08.667932+09:00
+Thread 1 closed at log sequence 84
+Successful close of redo thread 1
+2026-08-06T15:55:08.670006+09:00
+Buffer Cache invalidation for all PDBs started
+Buffer Cache invalidation for all PDBs complete
+Completed: ALTER DATABASE CLOSE NORMAL
+ALTER DATABASE DISMOUNT
+Shutting down archive processes
+Archiving is disabled
+Completed: ALTER DATABASE DISMOUNT
+2026-08-06T15:55:09.704892+09:00
+.... (PID:190897): Archival disabled due to shutdown: 1089
+Shutting down archive processes
+Archiving is disabled
+2026-08-06T15:55:10.705499+09:00
+JIT: pid 190897 requesting stop
+.... (PID:190897): Archival disabled due to shutdown: 1089
+Shutting down archive processes
+Archiving is disabled
+JIT: pid 190897 requesting stop
+2026-08-06T15:55:10.707248+09:00
+Stopping background process VKTM
+2026-08-06T15:55:20.046065+09:00
+Instance shutdown complete (OS id: 190897)
+2026-08-06T15:55:23.312421+09:00
+Starting ORACLE instance (normal) (OS id: 224556)
+2026-08-06T15:55:23.314318+09:00
+****************************************************
+ Sys-V shared memory will be used for creating SGA 
+ ****************************************************
+2026-08-06T15:55:23.314555+09:00
+**********************************************************************
+2026-08-06T15:55:23.314571+09:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2026-08-06T15:55:23.314596+09:00
+ Per process system memlock (soft) limit = 128G
+2026-08-06T15:55:23.314612+09:00
+ Expected per process system memlock (soft) limit to lock
+ instance MAX SHARED GLOBAL AREA (SGA) into memory: 1090M
+2026-08-06T15:55:23.314642+09:00
+ Available system pagesizes:
+  4K, 2048K 
+2026-08-06T15:55:23.314674+09:00
+ Supported system pagesize(s):
+2026-08-06T15:55:23.314689+09:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2026-08-06T15:55:23.314705+09:00
+        4K       Configured               2          278530        NONE
+2026-08-06T15:55:23.314728+09:00
+     2048K                0             545               0        NONE
+2026-08-06T15:55:23.314743+09:00
+RECOMMENDATION:
+2026-08-06T15:55:23.314758+09:00
+ 1. For optimal performance, configure system with expected number 
+ of pages for every supported system pagesize prior to the next 
+ instance restart operation.
+2026-08-06T15:55:23.316806+09:00
+**********************************************************************
+2026-08-06T15:55:26.555564+09:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2026-08-06T15:55:26.583451+09:00
+Initial number of CPU is 2
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Database Test 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as USE_DB_RECOVERY_FILE_DEST
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =51
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/19.3.0/dbhome_1
+System name:	Linux
+Node name:	ora19c.localdomain
+Release:	5.15.0-206.153.7.1.el8uek.x86_64
+Version:	#2 SMP Wed May 22 20:49:34 PDT 2024
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileora19c.ora
+System parameters with non-default values:
+  processes                = 300
+  nls_language             = "AMERICAN"
+  nls_territory            = "AMERICA"
+  sga_target               = 1088M
+  control_files            = "/u01/app/oracle/oradata/ORA19C/control01.ctl"
+  control_files            = "/u01/app/oracle/fast_recovery_area/ORA19C/control02.ctl"
+  db_block_size            = 8192
+  compatible               = "19.0.0"
+  log_archive_format       = "%t_%s_%r.dbf"
+  db_recovery_file_dest    = "/u01/app/oracle/fast_recovery_area"
+  db_recovery_file_dest_size= 8256M
+  undo_tablespace          = "UNDOTBS1"
+  remote_login_passwordfile= "EXCLUSIVE"
+  dispatchers              = "(PROTOCOL=TCP) (SERVICE=ora19cXDB)"
+  local_listener           = "LISTENER_ORA19C"
+  audit_file_dest          = "/u01/app/oracle/admin/ora19c/adump"
+  audit_trail              = "DB"
+  db_name                  = "ora19c"
+  open_cursors             = 300
+  pga_aggregate_target     = 363M
+  diagnostic_dest          = "/u01/app/oracle"
+2026-08-06T15:55:26.802410+09:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2026-08-06T15:55:26.891653+09:00
+PMON started with pid=2, OS id=224590 
+Starting background process CLMN
+2026-08-06T15:55:26.895312+09:00
+CLMN started with pid=3, OS id=224592 
+Starting background process PSP0
+2026-08-06T15:55:26.898785+09:00
+PSP0 started with pid=4, OS id=224594 
+Starting background process VKTM
+2026-08-06T15:55:27.905411+09:00
+VKTM started with pid=5, OS id=224602 at elevated (RT) priority
+2026-08-06T15:55:27.905984+09:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+2026-08-06T15:55:27.906058+09:00
+Starting background process GEN0
+2026-08-06T15:55:27.909463+09:00
+GEN0 started with pid=6, OS id=224606 
+Starting background process MMAN
+2026-08-06T15:55:27.912538+09:00
+MMAN started with pid=7, OS id=224608 
+Starting background process GEN1
+2026-08-06T15:55:27.923751+09:00
+GEN1 started with pid=9, OS id=224612_224613 
+Starting background process DIAG
+2026-08-06T15:55:27.930458+09:00
+DIAG started with pid=11, OS id=224615 
+Starting background process OFSD
+2026-08-06T15:55:27.943607+09:00
+OFSD started with pid=12, OS id=224617_224618 
+2026-08-06T15:55:27.943910+09:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+Starting background process DBRM
+Starting background process VKRM
+2026-08-06T15:55:27.947682+09:00
+DBRM started with pid=14, OS id=224620 
+2026-08-06T15:55:27.951163+09:00
+VKRM started with pid=15, OS id=224622 
+Starting background process SVCB
+2026-08-06T15:55:27.955622+09:00
+SVCB started with pid=16, OS id=224624 
+Starting background process PMAN
+2026-08-06T15:55:27.959913+09:00
+PMAN started with pid=17, OS id=224626 
+Starting background process DIA0
+2026-08-06T15:55:27.964060+09:00
+DIA0 started with pid=18, OS id=224628 
+Starting background process DBW0
+2026-08-06T15:55:27.974363+09:00
+DBW0 started with pid=19, OS id=224630 
+Starting background process LGWR
+2026-08-06T15:55:27.984437+09:00
+LGWR started with pid=20, OS id=224632 
+2026-08-06T15:55:27.991492+09:00
+LGWR slave LG00 created with pid=21, OS pid=224634
+Starting background process CKPT
+2026-08-06T15:55:28.003151+09:00
+CKPT started with pid=22, OS id=224636 
+LGWR slave LG01 created with pid=23, OS pid=224638
+Starting background process SMON
+2026-08-06T15:55:28.011959+09:00
+SMON started with pid=24, OS id=224640 
+Starting background process SMCO
+2026-08-06T15:55:28.016873+09:00
+SMCO started with pid=25, OS id=224642 
+Starting background process RECO
+2026-08-06T15:55:28.031521+09:00
+RECO started with pid=27, OS id=224646 
+Starting background process LREG
+2026-08-06T15:55:28.048335+09:00
+LREG started with pid=29, OS id=224650 
+Starting background process PXMN
+2026-08-06T15:55:28.060796+09:00
+PXMN started with pid=30, OS id=224652 
+Starting background process FENC
+2026-08-06T15:55:28.066620+09:00
+FENC started with pid=31, OS id=224654 
+Starting background process MMON
+2026-08-06T15:55:28.083510+09:00
+MMON started with pid=32, OS id=224656 
+Starting background process MMNL
+2026-08-06T15:55:28.087927+09:00
+MMNL started with pid=8, OS id=224658 
+2026-08-06T15:55:28.088361+09:00
+starting up 1 dispatcher(s) for network address '(ADDRESS=(PARTIAL=YES)(PROTOCOL=TCP))'...
+starting up 1 shared server(s) ...
+Starting background process TMON
+2026-08-06T15:55:28.099161+09:00
+TMON started with pid=34, OS id=224664 
+Setting CPU count to 2
+ORACLE_BASE from environment = /u01/app/oracle
+2026-08-06T15:55:28.131291+09:00
+ALTER DATABASE   MOUNT
+2026-08-06T15:55:30.964154+09:00
+Using default pga_aggregate_limit of 2048 MB
+2026-08-06T15:55:32.154738+09:00
+.... (PID:224665): Redo network throttle feature is disabled at mount time
+2026-08-06T15:55:32.180181+09:00
+Successful mount of redo thread 1, with mount id 1293744816
+2026-08-06T15:55:32.180444+09:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:224665): Using STANDBY_ARCHIVE_DEST parameter default value as USE_DB_RECOVERY_FILE_DEST [krsd.c:18157]
+Completed: ALTER DATABASE   MOUNT
+2026-08-06T15:55:32.219017+09:00
+ALTER DATABASE OPEN
+2026-08-06T15:55:32.220984+09:00
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+Endian type of dictionary set to little
+2026-08-06T15:55:32.238001+09:00
+LGWR (PID:224632): STARTING ARCH PROCESSES
+Starting background process ARC0
+2026-08-06T15:55:32.242795+09:00
+TT00 (PID:224698): Gap Manager starting
+2026-08-06T15:55:32.246273+09:00
+ARC0 started with pid=39, OS id=224700 
+2026-08-06T15:55:32.256406+09:00
+LGWR (PID:224632): ARC0: Archival started
+LGWR (PID:224632): STARTING ARCH PROCESSES COMPLETE
+2026-08-06T15:55:32.256540+09:00
+ARC0 (PID:224700): Becoming a 'no FAL' ARCH
+ARC0 (PID:224700): Becoming the 'no SRL' ARCH
+2026-08-06T15:55:32.258959+09:00
+Redo log for group 3, sequence 84 is not located on DAX storage
+Thread 1 opened at log sequence 84
+  Current log# 3 seq# 84 mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+Successful open of redo thread 1
+2026-08-06T15:55:32.275500+09:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+stopping change tracking
+Undo initialization recovery: err:0 start: 1190884221 end: 1190884223 diff: 2 ms (0.0 seconds)
+[224696] Successfully onlined Undo Tablespace 2.
+Undo initialization online undo segments: err:0 start: 1190884223 end: 1190884236 diff: 13 ms (0.0 seconds)
+Undo initialization finished serial:0 start:1190884221 end:1190884238 diff:17 ms (0.0 seconds)
+Verifying minimum file header compatibility for tablespace encryption..
+Verifying file header compatibility for tablespace encryption completed for pdb 0
+Database Characterset is AL32UTF8
+No Resource Manager plan active
+joxcsys_required_dirobj_exists: directory object exists with required path /u01/app/oracle/product/19.3.0/dbhome_1/javavm/admin/, pid 224696 cid 0
+replication_dependency_tracking turned off (no async multimaster replication found)
+Starting background process AQPC
+2026-08-06T15:55:32.479525+09:00
+AQPC started with pid=41, OS id=224710 
+Starting background process CJQ0
+2026-08-06T15:55:32.580729+09:00
+CJQ0 started with pid=45, OS id=224718 
+Completed: ALTER DATABASE OPEN
+### S07 END
+2026-08-06T15:55:33.133904+09:00
+QPI: opatch file present, opatch
+QPI: qopiprep.bat file present
+2026-08-06T15:55:33.249949+09:00
+TMON (PID:224664): STARTING ARCH PROCESSES
+Starting background process ARC1
+2026-08-06T15:55:33.256555+09:00
+ARC1 started with pid=46, OS id=224811 
+Starting background process ARC2
+2026-08-06T15:55:33.261315+09:00
+ARC2 started with pid=51, OS id=224815 
+Starting background process ARC3
+2026-08-06T15:55:33.265684+09:00
+ARC3 started with pid=52, OS id=224819 
+TMON (PID:224664): ARC1: Archival started
+TMON (PID:224664): ARC2: Archival started
+TMON (PID:224664): ARC3: Archival started
+TMON (PID:224664): STARTING ARCH PROCESSES COMPLETE
+2026-08-06T15:55:34.156237+09:00
+===========================================================
+Dumping current patch information
+===========================================================
+Patch Id: 29517242
+Patch Description: Database Release Update : 19.3.0.0.190416 (29517242)
+Patch Apply Time: 2019-04-18T16:21:17+09:00
+Bugs Fixed: 14735102,19697993,20313356,21965541,25806201,25883179,25986062,
+26476244,26611353,26872233,27369515,27423500,27666312,27710072,27846298,
+27957203,28064977,28072567,28129791,28181021,28210681,28279456,28313275,
+28350595,28371123,28379065,28431445,28463226,28489419,28502773,28513333,
+28534475,28561704,28569897,28572533,28572544,28587723,28593682,28594086,
+28597221,28601957,28605066,28606598,28625862,28627033,28636532,28643718,
+28644549,28645570,28646200,28646939,28649388,28655209,28663782,28673945,
+28692275,28694872,28696373,28705231,28710385,28710734,28714461,28718469,
+28730079,28740708,28760206,28772390,28774416,28777214,28789531,28791852,
+28795551,28802734,28804517,28810381,28811560,28815123,28815355,28819640,
+28824482,28833912,28835937,28862532,28863432,28873575,28876253,28876639,
+28884931,28888327,28892794,28897512,28899663,28901126,28905457,28907196,
+28912691,28915561,28917080,28918429,28919145,28922227,28922532,28922608,
+28925634,28925880,28933158,28936114,28937717,28938698,28940179,28940281,
+28941901,28942455,28945421,28945994,28951533,28952168,28954762,28955606,
+28957292,28957723,28962775,28965231,28966444,28974083,28977322,28983095,
+28983486,28986326,28986481,28988482,28989306,28993295,28994307,28996376,
+29000000,29001888,29002927,29003738,29006318,29006621,29007321,29007775,
+29008035,29011936,29013475,29014076,29015118,29017265,29018655,29019121,
+29021063,29021352,29024552,29026582,29026606,29027456,29027694,29027940,
+29031575,29031600,29032234,29032457,29032607,29033052,29033145,29033200,
+29033280,29034587,29037290,29038528,29039089,29039510,29043554,29043651,
+29043725,29044763,29044954,29047850,29048289,29048498,29048605,29050560,
+29050765,29051702,29052726,29053783,29056024,29056270,29056560,29059011,
+29061959,29062692,29062848,29062860,29062868,29110526,29110783,29110790,
+29110797,29110802,29110805,29111598,29113282,29113305,29117526,29117642,
+29119077,29120223,29122224,29122254,29123297,29123432,29123482,29124368,
+29125380,29126345,29127957,29128935,29129450,29129497,29129712,29130219,
+29131539,29132938,29134447,29136111,29138641,29141316,29141341,29141685,
+29142667,29144995,29145214,29145730,29149829,29150338,29151520,29152357,
+29155099,29157389,29158680,29158899,29159909,29159936,29160174,29162095,
+29163415,29163437,29163524,29163567,29167111,29167342,29167374,29167940,
+29168219,29168433,29169073,29169215,29171942,29172618,29172826,29173140,
+29173373,29173817,29174004,29176318,29177466,29177543,29177886,29178385,
+29180313,29180455,29180559,29180893,29181153,29181231,29181620,29181743,
+29181923,29182019,29183912,29184297,29184666,29185193,29186456,29189302,
+29189307,29189889,29190235,29190474,29190740,29191541,29192419,29192468,
+29192685,29193207,29194205,29194367,29194493,29194827,29195279,29195337,
+29195758,29196725,29199635,29199733,29200316,29200700,29201494,29201539,
+29202104,29202850,29203122,29203166,29203425,29203443,29203604,29205281,
+29205323,29205419,29205463,29205767,29205918,29206109,29206605,29207073,
+29208260,29208732,29211457,29211724,29212012,29212433,29212611,29213351,
+29213775,29213850,29213879,29214561,29214960,29216746,29216984,29217294,
+29217472,29217828,29217848,29218570,29219205,29219273,29220079,29221248,
+29221891,29222031,29222784,29223833,29223859,29223967,29224065,29224605,
+29225076,29227602,29228869,29229164,29229754,29229844,29229955,29230252,
+29230565,29231133,29232117,29232154,29234123,29237538,29240307,29241345,
+29242017,29242884,29243958,29245137,29245160,29246163,29247415,29247712,
+29247906,29248552,29248835,29248858,29249991,29250059,29251259,29253184,
+29253871,29254031,29254930,29255178,29255273,29255431,29255435,29256426,
+29259119,29259320,29261906,29262512,29262887,29265448,29266248,29266899,
+29267292,29268412,29269171,29270585,29273539,29273735,29273847,29274428,
+29274564,29274627,29275461,29278218,29279658,29279751,29279854,29282898,
+29285503,29285788,29285956,29286037,29287130,29287705,29292837,29293072,
+29297863,29297915,29298220,29299049,29299082,29299844,29301566,29302963,
+29303918,29304781,29311588,29312310,29312734,29312753,29313347,29313417,
+29313525,29314539,29318410,29319441,29321489,29323946,29324568,29325087,
+29325105,29325257,29325993,29327044,29329087,29331209,29331380,29331493,
+29332771,29333500,29337310,29338315,29338453,29338780,29338913,29339155,
+29341209,29343086,29346943,29347620,29348176,29350052,29351386,29351716,
+29351749,29352867,29353271,29355654,29356547,29356752,29358828,29360672,
+29361801,29363151,29364171,29364177,29367019,29367561,29368253,29373418,
+29373588,29374179,29377986,29378029,29379978,29382784,29385652,29386502,
+29386635,29386660,29387274,29388094,29388524,29388830,29389889,29390435,
+29394140,29394749,29397954,29398863,29399100,29399121,29405012,29405651,
+29412066,29412269,29417884,29423826,29429264,29429566,29431485,29435652,
+29438736,29439522,29450421,29451386,29452576,29452953,29457807,29460252,
+29462957,29486181,29507616,29515240,29521748,29530812,29531654,29557336,
+29558975,29601461
+
+Patch Id: 29585399
+Patch Description: OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
+Patch Apply Time: 2019-04-18T16:21:33+09:00
+Bugs Fixed: 3,27222128,27572040,27604329,27760043,27877830,28302580,28470673,
+28621543,28642469,28699321,28710663,28755846,28772816,28785321,28800508,
+28808652,28815557,28847541,28847572,28870496,28871040,28874416,28877252,
+28881191,28881848,28888083,28911140,28925250,28925460,28935956,28940472,
+28942694,28951332,28963036,28968779,28980448,28995287,29003207,29003617,
+29016294,29018680,29024876,29026154,29027933,29047127,29052850,29058476,
+29111631,29112455,29117337,29123444,29125708,29125786,29129476,29131772,
+29132456,29139727,29146157,29147849,29149170,29152603,29152752,29154631,
+29154636,29154829,29159216,29159661,29160462,29161923,29169540,29169739,
+29170717,29173618,29181568,29182920,29183298,29186091,29191827,29201143,
+29201695,29209545,29210577,29210610,29210624,29210683,29213641,29219627,
+29224294,29225861,29229839,29235934,29242906,29243749,29244495,29244766,
+29244968,29248723,29249583,29251564,29255616,29260224,29261695,29271019,
+29273360,29282090,29282666,29285453,29285621,29290235,29292232,29293806,
+29294753,29299830,29307090,29307109,29311336,29329675,29330791,29339299,
+29357821,29360467,29360775,29367971,29368725,29379299,29379381,29380527,
+29381000,29382296,29391301,29393649,29402110,29411931,29413360,29457319,
+29465047
+===========================================================
+2026-08-06T15:55:34.255306+09:00
+db_recovery_file_dest_size of 8256 MB is 21.81% used. This is a
+user-specified limit on the amount of space that will be used by this
+database for recovery-related files, and does not reflect the amount of
+space available in the underlying filesystem or ASM diskgroup.
+2026-08-06T15:59:05.003445+09:00
+Resize operation completed for file# 7, old size 5120K, new size 6400K
+### S08 BEGIN restart-abort
+Shutting down ORACLE instance (abort) (OS id: 224696)
+License high water mark = 1
+USER (ospid: 224696): terminating the instance
+2026-08-06T15:59:06.017679+09:00
+Instance terminated by USER, pid = 224696
+2026-08-06T15:59:06.256729+09:00
+Instance shutdown complete (OS id: 224696)
+2026-08-06T15:59:09.512322+09:00
+Starting ORACLE instance (normal) (OS id: 226267)
+2026-08-06T15:59:09.514322+09:00
+****************************************************
+ Sys-V shared memory will be used for creating SGA 
+ ****************************************************
+2026-08-06T15:59:09.514555+09:00
+**********************************************************************
+2026-08-06T15:59:09.514571+09:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2026-08-06T15:59:09.514600+09:00
+ Per process system memlock (soft) limit = 128G
+2026-08-06T15:59:09.514615+09:00
+ Expected per process system memlock (soft) limit to lock
+ instance MAX SHARED GLOBAL AREA (SGA) into memory: 1090M
+2026-08-06T15:59:09.514644+09:00
+ Available system pagesizes:
+  4K, 2048K 
+2026-08-06T15:59:09.514673+09:00
+ Supported system pagesize(s):
+2026-08-06T15:59:09.514687+09:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2026-08-06T15:59:09.514703+09:00
+        4K       Configured               2          278530        NONE
+2026-08-06T15:59:09.514726+09:00
+     2048K                0             545               0        NONE
+2026-08-06T15:59:09.514741+09:00
+RECOMMENDATION:
+2026-08-06T15:59:09.514756+09:00
+ 1. For optimal performance, configure system with expected number 
+ of pages for every supported system pagesize prior to the next 
+ instance restart operation.
+2026-08-06T15:59:09.516198+09:00
+**********************************************************************
+2026-08-06T15:59:12.726129+09:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2026-08-06T15:59:12.753449+09:00
+Initial number of CPU is 2
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 7 detected : 0 Simulated : 0
+Capability Type : Database Test 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as USE_DB_RECOVERY_FILE_DEST
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =51
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/19.3.0/dbhome_1
+System name:	Linux
+Node name:	ora19c.localdomain
+Release:	5.15.0-206.153.7.1.el8uek.x86_64
+Version:	#2 SMP Wed May 22 20:49:34 PDT 2024
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/19.3.0/dbhome_1/dbs/spfileora19c.ora
+System parameters with non-default values:
+  processes                = 300
+  nls_language             = "AMERICAN"
+  nls_territory            = "AMERICA"
+  sga_target               = 1088M
+  control_files            = "/u01/app/oracle/oradata/ORA19C/control01.ctl"
+  control_files            = "/u01/app/oracle/fast_recovery_area/ORA19C/control02.ctl"
+  db_block_size            = 8192
+  compatible               = "19.0.0"
+  log_archive_format       = "%t_%s_%r.dbf"
+  db_recovery_file_dest    = "/u01/app/oracle/fast_recovery_area"
+  db_recovery_file_dest_size= 8256M
+  undo_tablespace          = "UNDOTBS1"
+  remote_login_passwordfile= "EXCLUSIVE"
+  dispatchers              = "(PROTOCOL=TCP) (SERVICE=ora19cXDB)"
+  local_listener           = "LISTENER_ORA19C"
+  audit_file_dest          = "/u01/app/oracle/admin/ora19c/adump"
+  audit_trail              = "DB"
+  db_name                  = "ora19c"
+  open_cursors             = 300
+  pga_aggregate_target     = 363M
+  diagnostic_dest          = "/u01/app/oracle"
+2026-08-06T15:59:12.971753+09:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2026-08-06T15:59:13.060196+09:00
+PMON started with pid=2, OS id=226295 
+Starting background process CLMN
+2026-08-06T15:59:13.063888+09:00
+CLMN started with pid=3, OS id=226297 
+Starting background process PSP0
+2026-08-06T15:59:13.067468+09:00
+PSP0 started with pid=4, OS id=226299 
+Starting background process VKTM
+2026-08-06T15:59:13.071835+09:00
+VKTM started with pid=5, OS id=226301 at elevated (RT) priority
+2026-08-06T15:59:13.072299+09:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+Starting background process GEN0
+2026-08-06T15:59:13.075524+09:00
+GEN0 started with pid=6, OS id=226305 
+Starting background process MMAN
+2026-08-06T15:59:13.078438+09:00
+MMAN started with pid=7, OS id=226307 
+Starting background process GEN1
+2026-08-06T15:59:13.088846+09:00
+GEN1 started with pid=9, OS id=226311_226312 
+Starting background process DIAG
+2026-08-06T15:59:13.103575+09:00
+DIAG started with pid=11, OS id=226314 
+Starting background process OFSD
+Starting background process DBRM
+2026-08-06T15:59:13.116282+09:00
+OFSD started with pid=12, OS id=226316_226317 
+2026-08-06T15:59:13.116591+09:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+2026-08-06T15:59:13.125111+09:00
+DBRM started with pid=14, OS id=226319 
+Starting background process VKRM
+2026-08-06T15:59:13.134427+09:00
+VKRM started with pid=15, OS id=226321 
+Starting background process SVCB
+2026-08-06T15:59:13.139251+09:00
+SVCB started with pid=16, OS id=226323 
+Starting background process PMAN
+2026-08-06T15:59:13.143682+09:00
+PMAN started with pid=17, OS id=226325 
+Starting background process DIA0
+2026-08-06T15:59:13.149739+09:00
+DIA0 started with pid=18, OS id=226327 
+Starting background process DBW0
+2026-08-06T15:59:13.156910+09:00
+DBW0 started with pid=19, OS id=226329 
+Starting background process LGWR
+2026-08-06T15:59:13.166312+09:00
+LGWR started with pid=20, OS id=226331 
+2026-08-06T15:59:13.171531+09:00
+LGWR slave LG00 created with pid=21, OS pid=226333
+Starting background process CKPT
+2026-08-06T15:59:13.175878+09:00
+CKPT started with pid=22, OS id=226335 
+LGWR slave LG01 created with pid=23, OS pid=226337
+Starting background process SMON
+2026-08-06T15:59:13.184781+09:00
+SMON started with pid=24, OS id=226339 
+Starting background process SMCO
+2026-08-06T15:59:13.188443+09:00
+SMCO started with pid=25, OS id=226341 
+Starting background process RECO
+2026-08-06T15:59:13.203270+09:00
+RECO started with pid=27, OS id=226345 
+Starting background process LREG
+2026-08-06T15:59:13.213648+09:00
+LREG started with pid=29, OS id=226349 
+Starting background process PXMN
+2026-08-06T15:59:13.220746+09:00
+PXMN started with pid=30, OS id=226351 
+Starting background process FENC
+2026-08-06T15:59:13.232696+09:00
+FENC started with pid=31, OS id=226353 
+Starting background process MMON
+2026-08-06T15:59:13.237511+09:00
+MMON started with pid=32, OS id=226355 
+Starting background process MMNL
+2026-08-06T15:59:13.246105+09:00
+MMNL started with pid=33, OS id=226357 
+2026-08-06T15:59:13.247965+09:00
+starting up 1 dispatcher(s) for network address '(ADDRESS=(PARTIAL=YES)(PROTOCOL=TCP))'...
+starting up 1 shared server(s) ...
+Starting background process TMON
+2026-08-06T15:59:13.262930+09:00
+TMON started with pid=34, OS id=226366 
+Setting CPU count to 2
+ORACLE_BASE from environment = /u01/app/oracle
+2026-08-06T15:59:13.298171+09:00
+ALTER DATABASE   MOUNT
+2026-08-06T15:59:16.140994+09:00
+Using default pga_aggregate_limit of 2048 MB
+2026-08-06T15:59:17.320646+09:00
+.... (PID:226370): Redo network throttle feature is disabled at mount time
+2026-08-06T15:59:17.342095+09:00
+Successful mount of redo thread 1, with mount id 1293758353
+2026-08-06T15:59:17.342316+09:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:226370): Using STANDBY_ARCHIVE_DEST parameter default value as USE_DB_RECOVERY_FILE_DEST [krsd.c:18157]
+Completed: ALTER DATABASE   MOUNT
+2026-08-06T15:59:17.380630+09:00
+ALTER DATABASE OPEN
+2026-08-06T15:59:17.382061+09:00
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+2026-08-06T15:59:17.397654+09:00
+Beginning crash recovery of 1 threads
+ parallel recovery started with 2 processes
+ Thread 1: Recovery starting at checkpoint rba (logseq 84 block 235), scn 0
+2026-08-06T15:59:17.404938+09:00
+Started redo scan
+2026-08-06T15:59:17.414311+09:00
+Completed redo scan
+ read 6163 KB redo, 626 data blocks need recovery
+2026-08-06T15:59:17.423606+09:00
+Started redo application at
+ Thread 1: logseq 84, block 235, offset 0
+2026-08-06T15:59:17.423720+09:00
+Recovery of Online Redo Log: Thread 1 Group 3 Seq 84 Reading mem 0
+  Mem# 0: /u01/app/oracle/oradata/ORA19C/redo03.log
+2026-08-06T15:59:17.441190+09:00
+Completed redo application of 4.39MB
+2026-08-06T15:59:17.541440+09:00
+Completed crash recovery at
+ Thread 1: RBA 84.12562.16, nab 12562, scn 0x000000000035c2bd
+ 626 data blocks read, 626 data blocks written, 6163 redo k-bytes read
+Endian type of dictionary set to little
+2026-08-06T15:59:17.574428+09:00
+LGWR (PID:226331): STARTING ARCH PROCESSES
+Starting background process ARC0
+2026-08-06T15:59:17.579258+09:00
+TT00 (PID:226407): Gap Manager starting
+2026-08-06T15:59:17.582508+09:00
+ARC0 started with pid=41, OS id=226409 
+2026-08-06T15:59:17.592771+09:00
+LGWR (PID:226331): ARC0: Archival started
+LGWR (PID:226331): STARTING ARCH PROCESSES COMPLETE
+2026-08-06T15:59:17.592965+09:00
+ARC0 (PID:226409): Becoming a 'no FAL' ARCH
+ARC0 (PID:226409): Becoming the 'no SRL' ARCH
+2026-08-06T15:59:17.616013+09:00
+Thread 1 advanced to log sequence 85 (thread open)
+Redo log for group 1, sequence 85 is not located on DAX storage
+Thread 1 opened at log sequence 85
+  Current log# 1 seq# 85 mem# 0: /u01/app/oracle/oradata/ORA19C/redo01.log
+Successful open of redo thread 1
+2026-08-06T15:59:17.632273+09:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+stopping change tracking
+2026-08-06T15:59:17.650925+09:00
+ARC0 (PID:226409): Archived Log entry 80 added for T-1.S-84 ID 0x4cf47cdf LAD:1
+2026-08-06T15:59:17.669184+09:00
+Undo initialization recovery: err:0 start: 1191109571 end: 1191109576 diff: 5 ms (0.0 seconds)
+[226401] Successfully onlined Undo Tablespace 2.
+Undo initialization online undo segments: err:0 start: 1191109576 end: 1191109583 diff: 7 ms (0.0 seconds)
+Undo initialization finished serial:0 start:1191109571 end:1191109584 diff:13 ms (0.0 seconds)
+Verifying minimum file header compatibility for tablespace encryption..
+Verifying file header compatibility for tablespace encryption completed for pdb 0
+Database Characterset is AL32UTF8
+No Resource Manager plan active
+2026-08-06T15:59:17.748046+09:00
+SMON: Parallel transaction recovery tried
+2026-08-06T15:59:17.764836+09:00
+joxcsys_required_dirobj_exists: directory object exists with required path /u01/app/oracle/product/19.3.0/dbhome_1/javavm/admin/, pid 226401 cid 0
+replication_dependency_tracking turned off (no async multimaster replication found)
+Starting background process AQPC
+2026-08-06T15:59:17.832220+09:00
+AQPC started with pid=45, OS id=226417 
+Starting background process CJQ0
+2026-08-06T15:59:17.898733+09:00
+CJQ0 started with pid=46, OS id=226419 
+Completed: ALTER DATABASE OPEN
+### S08 END
+2026-08-06T15:59:18.496459+09:00
+QPI: opatch file present, opatch
+QPI: qopiprep.bat file present
+2026-08-06T15:59:18.586078+09:00
+TMON (PID:226366): STARTING ARCH PROCESSES
+Starting background process ARC1
+2026-08-06T15:59:18.595738+09:00
+ARC1 started with pid=47, OS id=226510 
+Starting background process ARC2
+2026-08-06T15:59:18.599620+09:00
+ARC2 started with pid=48, OS id=226517 
+Starting background process ARC3
+2026-08-06T15:59:18.603979+09:00
+ARC3 started with pid=49, OS id=226519 
+TMON (PID:226366): ARC1: Archival started
+TMON (PID:226366): ARC2: Archival started
+TMON (PID:226366): ARC3: Archival started
+TMON (PID:226366): STARTING ARCH PROCESSES COMPLETE
+2026-08-06T15:59:19.347650+09:00
+===========================================================
+Dumping current patch information
+===========================================================
+Patch Id: 29517242
+Patch Description: Database Release Update : 19.3.0.0.190416 (29517242)
+Patch Apply Time: 2019-04-18T16:21:17+09:00
+Bugs Fixed: 14735102,19697993,20313356,21965541,25806201,25883179,25986062,
+26476244,26611353,26872233,27369515,27423500,27666312,27710072,27846298,
+27957203,28064977,28072567,28129791,28181021,28210681,28279456,28313275,
+28350595,28371123,28379065,28431445,28463226,28489419,28502773,28513333,
+28534475,28561704,28569897,28572533,28572544,28587723,28593682,28594086,
+28597221,28601957,28605066,28606598,28625862,28627033,28636532,28643718,
+28644549,28645570,28646200,28646939,28649388,28655209,28663782,28673945,
+28692275,28694872,28696373,28705231,28710385,28710734,28714461,28718469,
+28730079,28740708,28760206,28772390,28774416,28777214,28789531,28791852,
+28795551,28802734,28804517,28810381,28811560,28815123,28815355,28819640,
+28824482,28833912,28835937,28862532,28863432,28873575,28876253,28876639,
+28884931,28888327,28892794,28897512,28899663,28901126,28905457,28907196,
+28912691,28915561,28917080,28918429,28919145,28922227,28922532,28922608,
+28925634,28925880,28933158,28936114,28937717,28938698,28940179,28940281,
+28941901,28942455,28945421,28945994,28951533,28952168,28954762,28955606,
+28957292,28957723,28962775,28965231,28966444,28974083,28977322,28983095,
+28983486,28986326,28986481,28988482,28989306,28993295,28994307,28996376,
+29000000,29001888,29002927,29003738,29006318,29006621,29007321,29007775,
+29008035,29011936,29013475,29014076,29015118,29017265,29018655,29019121,
+29021063,29021352,29024552,29026582,29026606,29027456,29027694,29027940,
+29031575,29031600,29032234,29032457,29032607,29033052,29033145,29033200,
+29033280,29034587,29037290,29038528,29039089,29039510,29043554,29043651,
+29043725,29044763,29044954,29047850,29048289,29048498,29048605,29050560,
+29050765,29051702,29052726,29053783,29056024,29056270,29056560,29059011,
+29061959,29062692,29062848,29062860,29062868,29110526,29110783,29110790,
+29110797,29110802,29110805,29111598,29113282,29113305,29117526,29117642,
+29119077,29120223,29122224,29122254,29123297,29123432,29123482,29124368,
+29125380,29126345,29127957,29128935,29129450,29129497,29129712,29130219,
+29131539,29132938,29134447,29136111,29138641,29141316,29141341,29141685,
+29142667,29144995,29145214,29145730,29149829,29150338,29151520,29152357,
+29155099,29157389,29158680,29158899,29159909,29159936,29160174,29162095,
+29163415,29163437,29163524,29163567,29167111,29167342,29167374,29167940,
+29168219,29168433,29169073,29169215,29171942,29172618,29172826,29173140,
+29173373,29173817,29174004,29176318,29177466,29177543,29177886,29178385,
+29180313,29180455,29180559,29180893,29181153,29181231,29181620,29181743,
+29181923,29182019,29183912,29184297,29184666,29185193,29186456,29189302,
+29189307,29189889,29190235,29190474,29190740,29191541,29192419,29192468,
+29192685,29193207,29194205,29194367,29194493,29194827,29195279,29195337,
+29195758,29196725,29199635,29199733,29200316,29200700,29201494,29201539,
+29202104,29202850,29203122,29203166,29203425,29203443,29203604,29205281,
+29205323,29205419,29205463,29205767,29205918,29206109,29206605,29207073,
+29208260,29208732,29211457,29211724,29212012,29212433,29212611,29213351,
+29213775,29213850,29213879,29214561,29214960,29216746,29216984,29217294,
+29217472,29217828,29217848,29218570,29219205,29219273,29220079,29221248,
+29221891,29222031,29222784,29223833,29223859,29223967,29224065,29224605,
+29225076,29227602,29228869,29229164,29229754,29229844,29229955,29230252,
+29230565,29231133,29232117,29232154,29234123,29237538,29240307,29241345,
+29242017,29242884,29243958,29245137,29245160,29246163,29247415,29247712,
+29247906,29248552,29248835,29248858,29249991,29250059,29251259,29253184,
+29253871,29254031,29254930,29255178,29255273,29255431,29255435,29256426,
+29259119,29259320,29261906,29262512,29262887,29265448,29266248,29266899,
+29267292,29268412,29269171,29270585,29273539,29273735,29273847,29274428,
+29274564,29274627,29275461,29278218,29279658,29279751,29279854,29282898,
+29285503,29285788,29285956,29286037,29287130,29287705,29292837,29293072,
+29297863,29297915,29298220,29299049,29299082,29299844,29301566,29302963,
+29303918,29304781,29311588,29312310,29312734,29312753,29313347,29313417,
+29313525,29314539,29318410,29319441,29321489,29323946,29324568,29325087,
+29325105,29325257,29325993,29327044,29329087,29331209,29331380,29331493,
+29332771,29333500,29337310,29338315,29338453,29338780,29338913,29339155,
+29341209,29343086,29346943,29347620,29348176,29350052,29351386,29351716,
+29351749,29352867,29353271,29355654,29356547,29356752,29358828,29360672,
+29361801,29363151,29364171,29364177,29367019,29367561,29368253,29373418,
+29373588,29374179,29377986,29378029,29379978,29382784,29385652,29386502,
+29386635,29386660,29387274,29388094,29388524,29388830,29389889,29390435,
+29394140,29394749,29397954,29398863,29399100,29399121,29405012,29405651,
+29412066,29412269,29417884,29423826,29429264,29429566,29431485,29435652,
+29438736,29439522,29450421,29451386,29452576,29452953,29457807,29460252,
+29462957,29486181,29507616,29515240,29521748,29530812,29531654,29557336,
+29558975,29601461
+
+Patch Id: 29585399
+Patch Description: OCW RELEASE UPDATE 19.3.0.0.0 (29585399)
+Patch Apply Time: 2019-04-18T16:21:33+09:00
+Bugs Fixed: 3,27222128,27572040,27604329,27760043,27877830,28302580,28470673,
+28621543,28642469,28699321,28710663,28755846,28772816,28785321,28800508,
+28808652,28815557,28847541,28847572,28870496,28871040,28874416,28877252,
+28881191,28881848,28888083,28911140,28925250,28925460,28935956,28940472,
+28942694,28951332,28963036,28968779,28980448,28995287,29003207,29003617,
+29016294,29018680,29024876,29026154,29027933,29047127,29052850,29058476,
+29111631,29112455,29117337,29123444,29125708,29125786,29129476,29131772,
+29132456,29139727,29146157,29147849,29149170,29152603,29152752,29154631,
+29154636,29154829,29159216,29159661,29160462,29161923,29169540,29169739,
+29170717,29173618,29181568,29182920,29183298,29186091,29191827,29201143,
+29201695,29209545,29210577,29210610,29210624,29210683,29213641,29219627,
+29224294,29225861,29229839,29235934,29242906,29243749,29244495,29244766,
+29244968,29248723,29249583,29251564,29255616,29260224,29261695,29271019,
+29273360,29282090,29282666,29285453,29285621,29290235,29292232,29293806,
+29294753,29299830,29307090,29307109,29311336,29329675,29330791,29339299,
+29357821,29360467,29360775,29367971,29368725,29379299,29379381,29380527,
+29381000,29382296,29391301,29393649,29402110,29411931,29413360,29457319,
+29465047
+===========================================================
+2026-08-06T15:59:19.476552+09:00
+db_recovery_file_dest_size of 8256 MB is 21.89% used. This is a
+user-specified limit on the amount of space that will be used by this
+database for recovery-related files, and does not reflect the amount of
+space available in the underlying filesystem or ASM diskgroup.
