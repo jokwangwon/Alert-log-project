@@ -1,0 +1,20 @@
+# 파이썬
+__pycache__/
+*.py[cod]
+
+# Colab / Jupyter
+.ipynb_checkpoints/
+
+# 에디터
+.vscode/
+.idea/
+
+# 시나리오 실행 산출물
+# corpus/*.sql 을 sqlplus 로 돌리면 생기는 spool 파일.
+# 실행할 때마다 달라지므로 저장소에 넣지 않는다.
+corpus/*.out
+
+# 수집 전에 치워둔 원본 alert log
+# mv alert_ora19c.log alert_ora19c.log.bak-YYYYMMDD 로 만든 것.
+# 수십 MB 라 저장소에 넣지 않는다.
+*.log.bak-*
